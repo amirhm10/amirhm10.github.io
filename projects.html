@@ -74,6 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modern.css">
 <meta property="og:title" content="Research — Amir Hamedi">
 <meta property="og:description" content="Selected research and engineering case studies by Amir Hamedi.">
 <meta property="og:image" content="https://amirhamedi.me/assets/projects/mpc-pretrained-rl/architecture-overview.svg">
@@ -88,6 +89,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./favicon.svg" alt="Amir Hamedi home" class="navbar-logo light-content">
+    <img src="./favicon.svg" alt="Amir Hamedi home" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Amir Hamedi</span>
     </a>
@@ -178,9 +183,18 @@ ul.task-list li input[type="checkbox"] {
 <h1>Research &amp; Projects</h1>
 <p>My work combines reinforcement learning, machine learning, process systems engineering, control, and applied software. Explore the systems, methods, and results behind each project.</p>
 </section>
+
+<div class="work-filters" data-work-filters="" hidden="" aria-label="Filter projects">
+  <button type="button" data-filter="all" aria-pressed="true">All work</button>
+  <button type="button" data-filter="rl" aria-pressed="false">Reinforcement learning</button>
+  <button type="button" data-filter="process" aria-pressed="false">Process systems</button>
+  <button type="button" data-filter="software" aria-pressed="false">Software</button>
+  <span role="status" aria-live="polite">6 projects</span>
+</div>
+
 <div class="research-grid">
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">01 / RESEARCH</span>
     <h2 class="anchored"><a href="research/mpc-pretrained-rl.html">MPC-Pretrained Reinforcement Learning</a></h2>
     
@@ -193,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
     <p class="research-card-action"><a class="card-link" href="research/mpc-pretrained-rl.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">02 / RESEARCH</span>
     <h2 class="anchored"><a href="research/multi-channel-rl-mpc.html">Multi-Channel RL-Assisted MPC</a></h2>
     
@@ -206,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
     <p class="research-card-action"><a class="card-link" href="research/multi-channel-rl-mpc.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">03 / RESEARCH</span>
     <h2 class="anchored"><a href="research/stability-aware-rl.html">Stability-Aware Reinforcement Learning</a></h2>
     
@@ -219,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
     <p class="research-card-action"><a class="card-link" href="research/stability-aware-rl.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">04 / RESEARCH</span>
     <h2 class="anchored"><a href="research/biosmb-ph-control.html">Reinforcement-Learning pH Control for BioSMB</a></h2>
     
@@ -232,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
     <p class="research-card-action"><a class="card-link" href="research/biosmb-ph-control.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="process">
     <span class="project-index">05 / RESEARCH</span>
     <h2 class="anchored"><a href="research/distillation-flooding.html">Distillation Flooding Detection and Control</a></h2>
     
@@ -245,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
     <p class="research-card-action"><a class="card-link" href="research/distillation-flooding.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="software">
     <span class="project-index">06 / SOFTWARE &amp; DATA</span>
     <h2 class="anchored"><a href="research/finance-assistance.html">Finance Assistance</a></h2>
     
@@ -264,6 +278,52 @@ ul.task-list li input[type="checkbox"] {
 
 
 </main> <!-- /main -->
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelectorAll('[data-work-filters]').forEach(group => {
+
+    const list = group.nextElementSibling;
+
+    if (!list?.classList.contains('research-grid')) return;
+
+    const cards = [...list.querySelectorAll('[data-work-category]')];
+
+    const status = group.querySelector('[role="status"]');
+
+    group.hidden = false;
+
+    group.querySelectorAll('button[data-filter]').forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        const category = button.dataset.filter;
+
+        let visible = 0;
+
+        cards.forEach(card => {
+
+          card.hidden = category !== 'all' && card.dataset.workCategory !== category;
+
+          if (!card.hidden) visible += 1;
+
+        });
+
+        group.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+
+        status.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'}`;
+
+      });
+
+    });
+
+  });
+
+});
+
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

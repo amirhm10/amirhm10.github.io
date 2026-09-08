@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="8" fill="#174f48"/>
-  <text x="32" y="43" text-anchor="middle" font-family="Georgia,serif" font-size="32" fill="#faf9f5">AH</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Amir Hamedi monogram">
+  <rect width="64" height="64" rx="14" fill="#203b38"/>
+  <g fill="none" stroke="#faf9f5" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M10 45 21 18 32 45 M14 35h14 M37 18v27 M53 18v27 M37 32h16"/>
+  </g>
+  <path d="M46 51h7" stroke="#a9cebc" stroke-width="2.5"/>
 </svg>

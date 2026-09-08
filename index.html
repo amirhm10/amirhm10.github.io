@@ -74,6 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modern.css">
 <meta property="og:title" content="Amir Hamedi — Machine Learning, Reinforcement Learning &amp; Control">
 <meta property="og:description" content="Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems &amp; Control Engineer. Research, software, experience, and CV.">
 <meta property="og:image" content="https://amirhamedi.me/assets/profile/amir-hamedi.jpg">
@@ -81,13 +82,17 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:image:alt" content="Portrait of Amir Hamedi">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed portfolio-home fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./favicon.svg" alt="Amir Hamedi home" class="navbar-logo light-content">
+    <img src="./favicon.svg" alt="Amir Hamedi home" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Amir Hamedi</span>
     </a>
@@ -176,11 +181,14 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="hero">
 <div class="hero-copy">
-<div class="eyebrow">
-<p>Amir Hamedi · Ontario, Canada</p>
+<div class="hero-kicker">
+Ontario, Canada · Research &amp; engineering
 </div>
-<section id="machine-learning-for-complex-process-systems." class="level1">
-<h1>Machine learning for complex process systems.</h1>
+<section id="amir-hamedi" class="level1">
+<h1>Amir Hamedi</h1>
+<div class="hero-thesis">
+Machine learning for<br>complex process systems.
+</div>
 <p class="hero-role">
 Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems &amp; Control Engineer
 </p>
@@ -202,7 +210,6 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
   </a>
 
 </nav>
-<p>I am a machine-learning and process-systems engineer working across reinforcement learning, scientific machine learning, and control. I develop data-driven methods for complex process systems in simulation and laboratory settings.</p>
 <div class="hero-actions">
 <p><a href="projects.html" class="button button-primary">Explore research</a> <a href="files/amir-hamedi-cv.pdf" class="button button-secondary" download="">Download CV</a></p>
 </div>
@@ -215,8 +222,22 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
 <p><img src="assets/profile/amir-hamedi.jpg" alt="Portrait of Amir Hamedi" width="400" height="400" decoding="async" fetchpriority="high"></p>
 </div>
 </div>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
+<nav class="page-index" aria-label="On this page">
+<span>Explore the portfolio</span>
+<a href="#selected-work">Selected work ↗</a>
+<a href="#expertise">Expertise</a>
+<a href="#experience">Experience</a>
+<a href="#education">Education</a>
+<a href="#publications">Publications</a>
+</nav>
+<div class="intro-band">
+<p class="intro-label">
+At the intersection of<br>learning and engineering.
+</p>
+<p>I am a machine-learning and process-systems engineer working across reinforcement learning, scientific machine learning, and control. I develop data-driven methods for complex process systems in simulation and laboratory settings.</p>
+</div>
+<div id="education" class="home-section">
+<div class="section-heading"><div><span class="section-number">01 / Background</span><h2 class="anchored">Education</h2></div><a href="experience.html">Experience &amp; leadership ↗</a></div>
 <div class="education-grid">
 
 <article class="education-card">
@@ -271,15 +292,24 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
 </article>
 
 </div>
-</section>
-<section id="selected-work" class="level2">
-<h2 class="anchored" data-anchor-id="selected-work">Selected work</h2>
+</div>
+<div id="selected-work" class="home-section">
+<div class="section-heading"><div><span class="section-number">02 / Research &amp; software</span><h2 class="anchored">Selected work</h2></div><a href="projects.html">Explore all projects ↗</a></div>
 <div class="section-lede">
 <p>6 case studies spanning reinforcement learning, scientific machine learning, control, laboratory experimentation, and data engineering.</p>
 </div>
+
+<div class="work-filters" data-work-filters="" hidden="" aria-label="Filter projects">
+  <button type="button" data-filter="all" aria-pressed="true">All work</button>
+  <button type="button" data-filter="rl" aria-pressed="false">Reinforcement learning</button>
+  <button type="button" data-filter="process" aria-pressed="false">Process systems</button>
+  <button type="button" data-filter="software" aria-pressed="false">Software</button>
+  <span role="status" aria-live="polite">6 projects</span>
+</div>
+
 <div class="research-grid">
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">01 / RESEARCH</span>
     <h3 class="anchored"><a href="research/mpc-pretrained-rl.html">MPC-Pretrained Reinforcement Learning</a></h3>
     
@@ -292,7 +322,7 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
     <p class="research-card-action"><a class="card-link" href="research/mpc-pretrained-rl.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">02 / RESEARCH</span>
     <h3 class="anchored"><a href="research/multi-channel-rl-mpc.html">Multi-Channel RL-Assisted MPC</a></h3>
     
@@ -305,7 +335,7 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
     <p class="research-card-action"><a class="card-link" href="research/multi-channel-rl-mpc.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">03 / RESEARCH</span>
     <h3 class="anchored"><a href="research/stability-aware-rl.html">Stability-Aware Reinforcement Learning</a></h3>
     
@@ -318,7 +348,7 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
     <p class="research-card-action"><a class="card-link" href="research/stability-aware-rl.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="rl">
     <span class="project-index">04 / RESEARCH</span>
     <h3 class="anchored"><a href="research/biosmb-ph-control.html">Reinforcement-Learning pH Control for BioSMB</a></h3>
     
@@ -331,7 +361,7 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
     <p class="research-card-action"><a class="card-link" href="research/biosmb-ph-control.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="process">
     <span class="project-index">05 / RESEARCH</span>
     <h3 class="anchored"><a href="research/distillation-flooding.html">Distillation Flooding Detection and Control</a></h3>
     
@@ -344,7 +374,7 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
     <p class="research-card-action"><a class="card-link" href="research/distillation-flooding.html">Open case study <span aria-hidden="true">→</span></a></p>
   </article>
 
-  <article class="research-card">
+  <article class="research-card" data-work-category="software">
     <span class="project-index">06 / SOFTWARE &amp; DATA</span>
     <h3 class="anchored"><a href="research/finance-assistance.html">Finance Assistance</a></h3>
     
@@ -359,30 +389,42 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
 
 </div>
 
-</section>
-<section id="technical-expertise" class="level2">
-<h2 class="anchored" data-anchor-id="technical-expertise">Technical expertise</h2>
+</div>
+<div id="expertise" class="home-section expertise-section">
+<div class="section-heading"><div><span class="section-number">03 / Methods &amp; tools</span><h2 class="anchored">Technical expertise</h2></div></div>
 <div class="card-grid">
-<section id="reinforcement-learning" class="level3 capability-card">
+<div class="capability-card">
+<p><span class="capability-order">01</span></p>
+<section id="reinforcement-learning" class="level3">
 <h3 class="anchored" data-anchor-id="reinforcement-learning">Reinforcement Learning</h3>
 <p>Value-based, actor-critic, and policy-optimization methods for discrete and continuous control, including DQN, TD3, TD7, and SAC; behavioral cloning, imitation learning, advanced experience replay, offline-to-online learning, and safe-RL action screening.</p>
 </section>
-<section id="machine-learning" class="level3 capability-card">
+</div>
+<div class="capability-card">
+<p><span class="capability-order">02</span></p>
+<section id="machine-learning" class="level3">
 <h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
 <p>Deep-learning architectures spanning convolutional, recurrent, attention-based, and sequence-modeling methods; time-series modeling, PINNs, generative models, PCA/PLS, autoencoders, clustering, classical machine learning, and LLM applications.</p>
 </section>
-<section id="control-optimization" class="level3 capability-card">
+</div>
+<div class="capability-card">
+<p><span class="capability-order">03</span></p>
+<section id="control-optimization" class="level3">
 <h3 class="anchored" data-anchor-id="control-optimization">Control &amp; Optimization</h3>
 <p>Linear and nonlinear control, model predictive control, linear and nonlinear optimization, and metaheuristic optimization for nonlinear process systems.</p>
 </section>
-<section id="software-platforms" class="level3 capability-card">
+</div>
+<div class="capability-card">
+<p><span class="capability-order">04</span></p>
+<section id="software-platforms" class="level3">
 <h3 class="anchored" data-anchor-id="software-platforms">Software &amp; Platforms</h3>
 <p>Python, PyTorch, MATLAB/Simulink, Aspen Plus/Dynamics, Pyomo/IPOPT, SQL, Power BI, Tableau, Minitab, Git, and LaTeX; laboratory automation and hardware integration.</p>
 </section>
 </div>
-</section>
-<section id="current-trajectory" class="level2">
-<h2 class="anchored" data-anchor-id="current-trajectory">Current trajectory</h2>
+</div>
+</div>
+<div id="experience" class="home-section">
+<div class="section-heading"><div><span class="section-number">04 / Research &amp; teaching</span><h2 class="anchored">Current trajectory</h2></div><a href="experience.html">Full experience ↗</a></div>
 <div class="timeline-list">
 
   <article class="timeline-item">
@@ -405,9 +447,9 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
 
 </div>
 
-</section>
-<section id="selected-publications" class="level2">
-<h2 class="anchored" data-anchor-id="selected-publications">Selected publications</h2>
+</div>
+<div id="publications" class="home-section">
+<div class="section-heading"><div><span class="section-number">05 / Research outputs</span><h2 class="anchored">Selected publications</h2></div><a href="publications.html">All publications ↗</a></div>
 <div class="publication-row">
 <p><span class="publication-year">2026</span></p>
 <section id="a-practical-mpc-pretrained-reinforcement-learning-framework-for-complex-process-systems" class="level3">
@@ -432,19 +474,67 @@ Machine Learning Engineer | Reinforcement Learning Researcher | Process Systems 
 <p><em>Optimal Control Applications and Methods</em></p>
 </section>
 </div>
-<p><a href="publications.html" class="text-link">View all publications →</a></p>
-</section>
-<section id="lets-connect" class="level2">
-<h2 class="anchored" data-anchor-id="lets-connect">Let’s connect</h2>
+</div>
+<div id="connect" class="connect-section">
+<p><span class="section-number">06 / Let’s connect</span></p>
+<section id="lets-talk-about-intelligent-process-systems." class="level2">
+<h2 class="anchored" data-anchor-id="lets-talk-about-intelligent-process-systems.">Let’s talk about intelligent process systems.</h2>
 <p>I welcome conversations about intelligent process systems, control, machine learning, reinforcement learning, and applied research collaborations.</p>
 <div class="contact-actions">
-<p><a href="mailto:hamedia@mcmaster.ca" class="button button-primary">Email Amir Hamedi</a> <a href="https://www.linkedin.com/in/amir-hossein-hamedi/" class="button button-secondary">LinkedIn</a> <a href="https://github.com/amirhm10" class="button button-secondary">GitHub</a> <a href="https://scholar.google.ca/citations?user=NS57XxEAAAAJ&amp;hl=en&amp;oi=ao" class="button button-secondary">Google Scholar</a></p>
+<p><a href="mailto:hamedia@mcmaster.ca" class="button button-primary">Email Amir Hamedi</a> <a href="https://www.linkedin.com/in/amir-hossein-hamedi/" class="button button-secondary no-external" target="_self" rel="me">LinkedIn</a> <a href="https://github.com/amirhm10" class="button button-secondary no-external" target="_self" rel="me">GitHub</a> <a href="https://scholar.google.ca/citations?user=NS57XxEAAAAJ&amp;hl=en&amp;oi=ao" class="button button-secondary no-external" target="_self" rel="me">Google Scholar</a></p>
+</div>
+</section>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelectorAll('[data-work-filters]').forEach(group => {
+
+    const list = group.nextElementSibling;
+
+    if (!list?.classList.contains('research-grid')) return;
+
+    const cards = [...list.querySelectorAll('[data-work-category]')];
+
+    const status = group.querySelector('[role="status"]');
+
+    group.hidden = false;
+
+    group.querySelectorAll('button[data-filter]').forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        const category = button.dataset.filter;
+
+        let visible = 0;
+
+        cards.forEach(card => {
+
+          card.hidden = category !== 'all' && card.dataset.workCategory !== category;
+
+          if (!card.hidden) visible += 1;
+
+        });
+
+        group.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+
+        status.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'}`;
+
+      });
+
+    });
+
+  });
+
+});
+
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
