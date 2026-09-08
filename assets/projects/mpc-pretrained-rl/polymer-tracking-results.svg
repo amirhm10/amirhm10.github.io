@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Polymer reactor final tracking error across five runs</title>
+  <desc id="desc">Two side-by-side bar charts compare RL1 and RL2 mean final absolute steady-state errors for intrinsic viscosity and reactor temperature under nominal and operational-change scenarios. RL2 is lower in all eight comparisons. Numbers beside each bar report mean and standard deviation across five runs.</desc>
+  <rect width="1600" height="1040" fill="#F7F9FC"/>
+  <text x="70" y="64" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="38" font-weight="700" fill="#12304A">RL2 reduced final tracking error in every polymer test</text>
+  <text x="70" y="103" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" fill="#4B5E70">Final absolute steady-state error in a noise-free evaluation episode | mean (standard deviation), five independent runs | lower is better</text>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="55" y="145" width="725" height="780" rx="24" fill="#FFFFFF" stroke="#DCE4EE" stroke-width="2"/>
+    <text x="90" y="196" font-size="28" font-weight="700" fill="#12304A">Intrinsic viscosity, eta (L/g)</text>
+    <text x="90" y="228" font-size="17" fill="#687A8D">Scale: 0 to 0.04 L/g</text>
+    <line x1="240" y1="260" x2="240" y2="855" stroke="#9DAABA" stroke-width="2"/>
+    <line x1="347.5" y1="260" x2="347.5" y2="855" stroke="#E2E8F0"/>
+    <line x1="455" y1="260" x2="455" y2="855" stroke="#E2E8F0"/>
+    <line x1="562.5" y1="260" x2="562.5" y2="855" stroke="#E2E8F0"/>
+    <line x1="670" y1="260" x2="670" y2="855" stroke="#E2E8F0"/>
+    <g font-size="15" fill="#687A8D" text-anchor="middle">
+      <text x="240" y="880">0</text><text x="347.5" y="880">0.01</text><text x="455" y="880">0.02</text><text x="562.5" y="880">0.03</text><text x="670" y="880">0.04</text>
+    </g>
+    <g font-size="18" fill="#24384B">
+      <text x="90" y="307" font-weight="600">Nominal - SP(a)</text>
+      <rect x="240" y="326" width="365.5" height="23" rx="6" fill="#F28E2B"/><text x="615" y="344">0.034 (0.024)</text>
+      <rect x="240" y="360" width="10.75" height="23" rx="6" fill="#2F6FED"/><text x="260" y="378">0.001 (0.001)</text>
+      <text x="90" y="457" font-weight="600">Nominal - SP(b)</text>
+      <rect x="240" y="476" width="279.5" height="23" rx="6" fill="#F28E2B"/><text x="529" y="494">0.026 (0.020)</text>
+      <rect x="240" y="510" width="21.5" height="23" rx="6" fill="#2F6FED"/><text x="271" y="528">0.002 (0.003)</text>
+      <text x="90" y="607" font-weight="600">Operational change - SP(a)</text>
+      <rect x="240" y="626" width="344" height="23" rx="6" fill="#F28E2B"/><text x="594" y="644">0.032 (0.020)</text>
+      <rect x="240" y="660" width="21.5" height="23" rx="6" fill="#2F6FED"/><text x="271" y="678">0.002 (0.003)</text>
+      <text x="90" y="757" font-weight="600">Operational change - SP(b)</text>
+      <rect x="240" y="776" width="75.25" height="23" rx="6" fill="#F28E2B"/><text x="325" y="794">0.007 (0.006)</text>
+      <rect x="240" y="810" width="21.5" height="23" rx="6" fill="#2F6FED"/><text x="271" y="828">0.002 (0.002)</text>
+    </g>
+
+    <rect x="820" y="145" width="725" height="780" rx="24" fill="#FFFFFF" stroke="#DCE4EE" stroke-width="2"/>
+    <text x="855" y="196" font-size="28" font-weight="700" fill="#12304A">Reactor temperature, T (K)</text>
+    <text x="855" y="228" font-size="17" fill="#687A8D">Scale: 0 to 0.12 K</text>
+    <line x1="1010" y1="260" x2="1010" y2="855" stroke="#9DAABA" stroke-width="2"/>
+    <line x1="1117.5" y1="260" x2="1117.5" y2="855" stroke="#E2E8F0"/>
+    <line x1="1225" y1="260" x2="1225" y2="855" stroke="#E2E8F0"/>
+    <line x1="1332.5" y1="260" x2="1332.5" y2="855" stroke="#E2E8F0"/>
+    <line x1="1440" y1="260" x2="1440" y2="855" stroke="#E2E8F0"/>
+    <g font-size="15" fill="#687A8D" text-anchor="middle">
+      <text x="1010" y="880">0</text><text x="1117.5" y="880">0.03</text><text x="1225" y="880">0.06</text><text x="1332.5" y="880">0.09</text><text x="1440" y="880">0.12</text>
+    </g>
+    <g font-size="18" fill="#24384B">
+      <text x="855" y="307" font-weight="600">Nominal - SP(a)</text>
+      <rect x="1010" y="326" width="333.25" height="23" rx="6" fill="#F28E2B"/><text x="1353" y="344">0.093 (0.085)</text>
+      <rect x="1010" y="360" width="28.67" height="23" rx="6" fill="#2F6FED"/><text x="1049" y="378">0.008 (0.009)</text>
+      <text x="855" y="457" font-weight="600">Nominal - SP(b)</text>
+      <rect x="1010" y="476" width="207.83" height="23" rx="6" fill="#F28E2B"/><text x="1228" y="494">0.058 (0.043)</text>
+      <rect x="1010" y="510" width="32.25" height="23" rx="6" fill="#2F6FED"/><text x="1053" y="528">0.009 (0.005)</text>
+      <text x="855" y="607" font-weight="600">Operational change - SP(a)</text>
+      <rect x="1010" y="626" width="369.08" height="23" rx="6" fill="#F28E2B"/><text x="1389" y="644">0.103 (0.133)</text>
+      <rect x="1010" y="660" width="57.33" height="23" rx="6" fill="#2F6FED"/><text x="1078" y="678">0.016 (0.012)</text>
+      <text x="855" y="757" font-weight="600">Operational change - SP(b)</text>
+      <rect x="1010" y="776" width="200.67" height="23" rx="6" fill="#F28E2B"/><text x="1221" y="794">0.056 (0.038)</text>
+      <rect x="1010" y="810" width="17.92" height="23" rx="6" fill="#2F6FED"/><text x="1038" y="828">0.005 (0.005)</text>
+    </g>
+
+    <g font-size="18" fill="#24384B">
+      <rect x="75" y="958" width="24" height="16" rx="4" fill="#F28E2B"/><text x="110" y="973">RL1: MPC-pretrained TD3 with one-step MPC-style online reward</text>
+      <rect x="755" y="958" width="24" height="16" rx="4" fill="#2F6FED"/><text x="790" y="973">RL2: same initialization plus offset-aware reward and mixed replay</text>
+    </g>
+    <text x="75" y="1008" font-size="16" fill="#687A8D">Source: published article's polymer final-error table. Percentage labels are intentionally omitted because the displayed means are rounded.</text>
+  </g>
+</svg>

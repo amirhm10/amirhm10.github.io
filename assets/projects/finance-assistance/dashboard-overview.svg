@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic Finance Assistance Dashboard v2 overview</title>
+  <desc id="desc">A synthetic dashboard mockup with six tabs, native-currency summary cards, confirmed spending bars, data-quality labels, and an attention panel. All institutions, account names, and financial values are fictional.</desc>
+  <defs><style>.bg{fill:#fbf7ed}.panel{fill:#fffdf7;stroke:#d4ddd9;stroke-width:2}.ink{fill:#173f3b}.muted{fill:#647570}.teal{fill:#0b625c}.tealLight{fill:#d8ebe6}.amber{fill:#d18a24}.amberLight{fill:#fff0d2}.line{stroke:#d4ddd9;stroke-width:2}.h1{font:700 28px 'Segoe UI',Arial,sans-serif}.h2{font:700 18px 'Segoe UI',Arial,sans-serif}.money{font:700 25px 'Segoe UI',Arial,sans-serif}.body{font:14px 'Segoe UI',Arial,sans-serif}.small{font:12px 'Segoe UI',Arial,sans-serif}.tab{font:600 13px 'Segoe UI',Arial,sans-serif}</style></defs>
+  <rect class="bg" width="1200" height="720" rx="24"/>
+  <rect x="34" y="30" width="1132" height="660" rx="18" class="panel"/>
+  <rect x="34" y="30" width="1132" height="70" rx="18" class="teal"/>
+  <text x="64" y="66" class="h1" fill="#fffdf7">Finance Assistance</text><text x="64" y="88" class="small" fill="#d8ebe6">Private • read-only • exact native-currency views</text>
+  <rect x="927" y="49" width="207" height="31" rx="15" class="amberLight"/><text x="947" y="70" class="tab" fill="#7a4807">SYNTHETIC UI CONCEPT</text>
+  <line x1="34" y1="147" x2="1166" y2="147" class="line"/>
+  <g class="tab"><text x="62" y="130" class="teal">Overview</text><text x="153" y="130" class="muted">Transactions</text><text x="261" y="130" class="muted">Spending</text><text x="347" y="130" class="muted">Accounts &amp; Assets</text><text x="497" y="130" class="muted">Health &amp; Backups</text><text x="652" y="130" class="muted">Review</text></g>
+  <rect x="56" y="144" width="67" height="4" class="amber"/>
+  <text x="62" y="182" class="h2 ink">Overview</text><text x="1060" y="182" class="small muted">As of: demo</text>
+
+  <rect x="62" y="204" width="252" height="120" rx="14" class="panel"/><text x="84" y="234" class="small muted">CAD net position</text><text x="84" y="274" class="money ink">1,234.56 CAD</text><rect x="84" y="290" width="66" height="20" rx="10" class="tealLight"/><text x="98" y="304" class="small teal">current</text>
+  <rect x="332" y="204" width="252" height="120" rx="14" class="panel"/><text x="354" y="234" class="small muted">USD net position</text><text x="354" y="274" class="money ink">842.10 USD</text><rect x="354" y="290" width="66" height="20" rx="10" class="tealLight"/><text x="368" y="304" class="small teal">current</text>
+  <rect x="602" y="204" width="252" height="120" rx="14" class="panel"/><text x="624" y="234" class="small muted">Confirmed spending</text><text x="624" y="274" class="money ink">125.00 CAD</text><text x="624" y="303" class="small muted">Provisional values excluded</text>
+  <rect x="872" y="204" width="260" height="120" rx="14" class="amberLight"/><text x="894" y="234" class="small" fill="#7a4807">Needs attention</text><text x="894" y="270" class="h2 ink">3 review items</text><text x="894" y="299" class="small muted">Human decision remains authoritative</text>
+
+  <rect x="62" y="348" width="522" height="274" rx="14" class="panel"/>
+  <text x="84" y="384" class="h2 ink">Confirmed spending by category</text><text x="84" y="407" class="small muted">Synthetic month • CAD only</text>
+  <text x="84" y="451" class="body ink">Housing</text><rect x="190" y="435" width="320" height="18" rx="9" class="tealLight"/><rect x="190" y="435" width="250" height="18" rx="9" class="teal"/><text x="520" y="450" class="small muted">75.00</text>
+  <text x="84" y="496" class="body ink">Groceries</text><rect x="190" y="480" width="320" height="18" rx="9" class="tealLight"/><rect x="190" y="480" width="134" height="18" rx="9" class="amber"/><text x="520" y="495" class="small muted">40.00</text>
+  <text x="84" y="541" class="body ink">Transit</text><rect x="190" y="525" width="320" height="18" rx="9" class="tealLight"/><rect x="190" y="525" width="34" height="18" rx="9" class="teal"/><text x="520" y="540" class="small muted">10.00</text>
+  <line x1="84" y1="569" x2="558" y2="569" class="line"/><text x="84" y="597" class="small muted">Lineage: reconciled ledger + classification state</text>
+
+  <rect x="602" y="348" width="530" height="274" rx="14" class="panel"/>
+  <text x="624" y="384" class="h2 ink">Data quality and coverage</text>
+  <g class="body"><text x="624" y="429" class="ink">Everyday account</text><text x="902" y="429" class="muted">current</text><circle cx="1084" cy="424" r="7" class="teal"/><text x="624" y="473" class="ink">Savings account</text><text x="902" y="473" class="muted">current</text><circle cx="1084" cy="468" r="7" class="teal"/><text x="624" y="517" class="ink">Digital-asset snapshot</text><text x="902" y="517" class="muted">price missing</text><circle cx="1084" cy="512" r="7" class="amber"/><text x="624" y="561" class="ink">Backup verification</text><text x="902" y="561" class="muted">local only</text><circle cx="1084" cy="556" r="7" class="amber"/></g>
+  <line x1="624" y1="580" x2="1110" y2="580" class="line"/><text x="624" y="604" class="small muted">Fictional labels and values; no real accounts or providers.</text>
+  <text x="62" y="660" class="small" fill="#9b5b08">All financial data in this illustration is synthetic. The image is an original public-safe representation, not a screenshot.</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Laboratory tracking across operating directions</title>
+  <desc id="desc">A bar chart compares absolute final-five-minute block-mean pH error for the startup-to-low-target transition, four upward target changes, and three downward target changes. Exact values are 0.02366399, 0.00755606, and 0.00556007 pH.</desc>
+  <metadata>Figure ID: FIG-04; Evidence: E-LAB-05; Label: exploratory stored laboratory operating-scenario comparison, not a formal uncertainty study</metadata>
+  <rect width="1200" height="720" fill="#FAF7F0"/>
+  <text x="70" y="66" font-family="Inter, Segoe UI, sans-serif" font-size="33" font-weight="700" fill="#173C3B">Tracking stayed consistent as target direction changed</text>
+  <text x="70" y="101" font-family="Inter, Segoe UI, sans-serif" font-size="18" fill="#456361">Absolute final-five-minute block-mean pH error in the Aug. 7 laboratory run</text>
+
+  <rect x="125" y="135" width="950" height="420" rx="18" fill="#FFFFFF" stroke="#D5DFDC" stroke-width="2"/>
+  <g stroke="#DDE6E3" stroke-width="1">
+    <line x1="185" y1="480" x2="1030" y2="480"/>
+    <line x1="185" y1="412" x2="1030" y2="412"/>
+    <line x1="185" y1="344" x2="1030" y2="344"/>
+    <line x1="185" y1="276" x2="1030" y2="276"/>
+    <line x1="185" y1="208" x2="1030" y2="208"/>
+    <line x1="185" y1="140" x2="1030" y2="140"/>
+  </g>
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#456361" text-anchor="end">
+    <text x="174" y="485">0.000</text><text x="174" y="417">0.005</text><text x="174" y="349">0.010</text>
+    <text x="174" y="281">0.015</text><text x="174" y="213">0.020</text><text x="174" y="145">0.025</text>
+  </g>
+  <text transform="translate(62 330) rotate(-90)" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#173C3B">Absolute block-mean error [pH]</text>
+
+  <rect x="265" y="158.170" width="170" height="321.830" rx="12" fill="#F3B33D"/>
+  <rect x="515" y="377.238" width="170" height="102.762" rx="12" fill="#0B5D5B"/>
+  <rect x="765" y="404.383" width="170" height="75.617" rx="12" fill="#4B8B79"/>
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#173C3B" text-anchor="middle">
+    <text x="350" y="147">0.02366</text>
+    <text x="600" y="366">0.00756</text>
+    <text x="850" y="393">0.00556</text>
+  </g>
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="16" fill="#173C3B" text-anchor="middle">
+    <text x="350" y="515">Startup → low target</text>
+    <text x="350" y="539" fill="#456361">1 block</text>
+    <text x="600" y="515">Upward changes</text>
+    <text x="600" y="539" fill="#456361">4 blocks</text>
+    <text x="850" y="515">Downward changes</text>
+    <text x="850" y="539" fill="#456361">3 blocks</text>
+  </g>
+
+  <rect x="160" y="585" width="880" height="50" rx="14" fill="#FFF3D6" stroke="#E1B159" stroke-width="1"/>
+  <text x="600" y="607" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#69420A">Interpretation boundary</text>
+  <text x="600" y="627" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#69420A">This is an exploratory operating-direction comparison, not a calibrated uncertainty or robustness study.</text>
+
+  <rect x="70" y="660" width="1060" height="38" rx="11" fill="#173C3B"/>
+  <text x="600" y="685" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#FFFFFF">FIG-04 · Stored laboratory experiment; targets reconstructed · Evidence: E-LAB-05</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Finance Assistance platform architecture</title>
+  <desc id="desc">A layered architecture diagram showing read-only financial sources flowing through encrypted evidence stores and typed adapters into a canonical ledger, deterministic reconciliation, explainable categorization, query services, operational health, and a local dashboard. A dashed amber box marks future AI decision support as planned.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbf7ed}.ink{fill:#173f3b}.muted{fill:#5f706c}.teal{fill:#0b625c}.teal2{fill:#d8ebe6}.amber{fill:#d18a24}.amber2{fill:#fff0d2}.card{fill:#fffdf7;stroke:#87a49e;stroke-width:2}.planned{fill:#fff8e8;stroke:#d18a24;stroke-width:2;stroke-dasharray:10 8}.line{stroke:#0b625c;stroke-width:3;fill:none}.dash{stroke:#d18a24;stroke-width:3;stroke-dasharray:9 7;fill:none}.h1{font:700 30px 'Segoe UI',Arial,sans-serif}.h2{font:700 18px 'Segoe UI',Arial,sans-serif}.body{font:15px 'Segoe UI',Arial,sans-serif}.small{font:13px 'Segoe UI',Arial,sans-serif}.label{font:700 12px 'Segoe UI',Arial,sans-serif;letter-spacing:1.4px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#0b625c"/></marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d18a24"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="720" rx="24"/>
+  <text x="60" y="62" class="h1 ink">Local-first financial data architecture</text>
+  <text x="60" y="91" class="body muted">Implemented evidence and decision layers, with future AI assistance kept outside accounting authority</text>
+
+  <text x="60" y="136" class="label teal">READ-ONLY INPUT CATEGORIES</text>
+  <rect x="60" y="158" width="220" height="92" rx="14" class="card"/>
+  <text x="82" y="190" class="h2 ink">Banking data</text><text x="82" y="216" class="body muted">Transactions and balances</text><text x="82" y="238" class="small muted">Provider-dependent</text>
+  <rect x="60" y="270" width="220" height="92" rx="14" class="card"/>
+  <text x="82" y="302" class="h2 ink">Digital assets</text><text x="82" y="328" class="body muted">Exchange balance snapshots</text><text x="82" y="350" class="small muted">Provider-dependent</text>
+  <rect x="60" y="382" width="220" height="92" rx="14" class="card"/>
+  <text x="82" y="414" class="h2 ink">Public-address assets</text><text x="82" y="440" class="body muted">Wallet position snapshots</text><text x="82" y="462" class="small muted">Provider-dependent</text>
+  <rect x="60" y="494" width="220" height="92" rx="14" class="card"/>
+  <text x="82" y="526" class="h2 ink">Imported evidence</text><text x="82" y="552" class="body muted">Statement documents</text><text x="82" y="574" class="small muted">Owner-operated</text>
+
+  <path d="M280 316 H336" class="line" marker-end="url(#arrow)"/>
+  <text x="342" y="136" class="label teal">EVIDENCE &amp; NORMALIZATION</text>
+  <rect x="340" y="158" width="250" height="132" rx="14" class="card"/>
+  <rect x="340" y="158" width="250" height="12" rx="6" class="teal"/>
+  <text x="366" y="203" class="h2 ink">Encrypted source stores</text>
+  <text x="366" y="232" class="body muted">Append-only source evidence</text>
+  <text x="366" y="257" class="body muted">Atomic checkpoints and lineage</text>
+  <rect x="340" y="316" width="250" height="132" rx="14" class="card"/>
+  <rect x="340" y="316" width="250" height="12" rx="6" class="teal"/>
+  <text x="366" y="361" class="h2 ink">Typed source adapters</text>
+  <text x="366" y="390" class="body muted">Accounts • transactions</text>
+  <text x="366" y="415" class="body muted">Balances • positions</text>
+  <rect x="340" y="474" width="250" height="112" rx="14" class="card"/>
+  <text x="366" y="516" class="h2 ink">Exact value contracts</text>
+  <text x="366" y="545" class="body muted">Integer minor units</text>
+  <text x="366" y="568" class="body muted">Coefficient + scale quantities</text>
+  <path d="M465 290 V310" class="line" marker-end="url(#arrow)"/><path d="M465 448 V468" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M590 371 H646" class="line" marker-end="url(#arrow)"/>
+  <text x="652" y="136" class="label teal">TRUSTED DOMAIN LAYER</text>
+  <rect x="650" y="158" width="240" height="132" rx="14" class="card"/>
+  <rect x="650" y="158" width="240" height="12" rx="6" class="teal"/>
+  <text x="676" y="203" class="h2 ink">Canonical ledger</text>
+  <text x="676" y="232" class="body muted">Balanced per currency</text>
+  <text x="676" y="257" class="body muted">Immutable revisions and audit</text>
+  <rect x="650" y="316" width="240" height="132" rx="14" class="card"/>
+  <text x="676" y="361" class="h2 ink">Interpretation</text>
+  <text x="676" y="390" class="body muted">Deterministic reconciliation</text>
+  <text x="676" y="415" class="body muted">Explainable categorization</text>
+  <rect x="650" y="474" width="240" height="112" rx="14" class="card"/>
+  <text x="676" y="516" class="h2 ink">Operations store</text>
+  <text x="676" y="545" class="body muted">Health • validation • backup</text>
+  <text x="676" y="568" class="body muted">Safe status and audit events</text>
+  <path d="M770 290 V310" class="line" marker-end="url(#arrow)"/><path d="M770 448 V468" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M890 371 H946" class="line" marker-end="url(#arrow)"/>
+  <text x="952" y="136" class="label teal">LOCAL EXPERIENCE</text>
+  <rect x="950" y="158" width="190" height="132" rx="14" class="card"/>
+  <rect x="950" y="158" width="190" height="12" rx="6" class="teal"/>
+  <text x="974" y="203" class="h2 ink">Typed query service</text>
+  <text x="974" y="232" class="body muted">Read-only views</text>
+  <text x="974" y="257" class="body muted">Quality and lineage</text>
+  <rect x="950" y="316" width="190" height="132" rx="14" class="card"/>
+  <text x="974" y="361" class="h2 ink">Dashboard v2</text>
+  <text x="974" y="390" class="body muted">Six owner-facing tabs</text>
+  <text x="974" y="415" class="body muted">Local prototype</text>
+  <rect x="950" y="474" width="190" height="112" rx="14" class="planned"/>
+  <text x="974" y="516" class="h2 ink">AI decision support</text>
+  <text x="974" y="545" class="body muted">Read-only explanations</text>
+  <text x="974" y="568" class="body" fill="#9b5b08">PLANNED</text>
+  <path d="M1045 290 V310" class="line" marker-end="url(#arrow)"/><path d="M1045 448 V468" class="dash" marker-end="url(#arrowAmber)"/>
+
+  <rect x="60" y="630" width="1080" height="50" rx="12" class="teal2"/>
+  <text x="84" y="661" class="h2 ink">Boundary:</text><text x="178" y="661" class="body ink">local and read-only; no payment, transfer, trade, withdrawal, wallet signing, or autonomous action</text>
+</svg>

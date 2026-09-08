@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Finance Assistance data pipeline</title>
+  <desc id="desc">An eight-stage data pipeline: read-only acquisition, encrypted evidence commit, typed normalization, canonical projection, deterministic reconciliation, explainable categorization, guarded model evidence, and read-only query and dashboard validation. Provider and model stages are marked as dependent, while accounting authority remains deterministic.</desc>
+  <defs>
+    <style>.bg{fill:#fbf7ed}.ink{fill:#173f3b}.muted{fill:#5f706c}.teal{fill:#0b625c}.tealLight{fill:#d8ebe6}.amber{fill:#d18a24}.amberLight{fill:#fff0d2}.card{fill:#fffdf7;stroke:#88a49e;stroke-width:2}.dep{fill:#fff8e8;stroke:#d18a24;stroke-width:2;stroke-dasharray:9 7}.line{stroke:#0b625c;stroke-width:3;fill:none}.h1{font:700 30px 'Segoe UI',Arial,sans-serif}.h2{font:700 17px 'Segoe UI',Arial,sans-serif}.body{font:15px 'Segoe UI',Arial,sans-serif}.small{font:13px 'Segoe UI',Arial,sans-serif}.num{font:700 15px 'Segoe UI',Arial,sans-serif;fill:#fffdf7}</style><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#0b625c"/></marker></defs>
+  <rect class="bg" width="1200" height="720" rx="24"/>
+  <text x="60" y="62" class="h1 ink">Evidence-first data pipeline</text>
+  <text x="60" y="91" class="body muted">Each stage has its own checkpoint; later failures leave earlier committed work intact and retryable</text>
+
+  <path d="M196 214 H260" class="line" marker-end="url(#arrow)"/><path d="M458 214 H522" class="line" marker-end="url(#arrow)"/><path d="M720 214 H784" class="line" marker-end="url(#arrow)"/>
+  <path d="M982 214 H1060 V458 H982" class="line" marker-end="url(#arrow)"/><path d="M784 458 H720" class="line" marker-end="url(#arrow)"/><path d="M522 458 H458" class="line" marker-end="url(#arrow)"/><path d="M260 458 H196" class="line" marker-end="url(#arrow)"/>
+
+  <g><rect x="60" y="146" width="136" height="136" rx="16" class="dep"/><circle cx="84" cy="170" r="15" class="amber"/><text x="80" y="175" class="num">1</text><text x="80" y="210" class="h2 ink">Acquire</text><text x="80" y="237" class="body muted">Read-only source</text><text x="80" y="260" class="small" fill="#9b5b08">Provider-dependent</text></g>
+  <g><rect x="322" y="146" width="136" height="136" rx="16" class="card"/><circle cx="346" cy="170" r="15" class="teal"/><text x="342" y="175" class="num">2</text><text x="342" y="210" class="h2 ink">Commit evidence</text><text x="342" y="237" class="body muted">Encrypted pages</text><text x="342" y="260" class="small muted">Atomic checkpoint</text></g>
+  <g><rect x="584" y="146" width="136" height="136" rx="16" class="card"/><circle cx="608" cy="170" r="15" class="teal"/><text x="604" y="175" class="num">3</text><text x="604" y="210" class="h2 ink">Normalize</text><text x="604" y="237" class="body muted">Typed contracts</text><text x="604" y="260" class="small muted">Exact values</text></g>
+  <g><rect x="846" y="146" width="136" height="136" rx="16" class="card"/><circle cx="870" cy="170" r="15" class="teal"/><text x="866" y="175" class="num">4</text><text x="866" y="210" class="h2 ink">Project</text><text x="866" y="237" class="body muted">Canonical ledger</text><text x="866" y="260" class="small muted">Balanced journals</text></g>
+
+  <g><rect x="846" y="390" width="136" height="136" rx="16" class="card"/><circle cx="870" cy="414" r="15" class="teal"/><text x="866" y="419" class="num">5</text><text x="866" y="454" class="h2 ink">Reconcile</text><text x="866" y="481" class="body muted">Relationships</text><text x="866" y="504" class="small muted">Rules + review</text></g>
+  <g><rect x="584" y="390" width="136" height="136" rx="16" class="card"/><circle cx="608" cy="414" r="15" class="teal"/><text x="604" y="419" class="num">6</text><text x="604" y="454" class="h2 ink">Categorize</text><text x="604" y="481" class="body muted">Fixed precedence</text><text x="604" y="504" class="small muted">Explainable state</text></g>
+  <g><rect x="322" y="390" width="136" height="136" rx="16" class="dep"/><circle cx="346" cy="414" r="15" class="amber"/><text x="342" y="419" class="num">7</text><text x="342" y="454" class="h2 ink">Model evidence</text><text x="342" y="481" class="body muted">Guarded classifier</text><text x="342" y="504" class="small" fill="#9b5b08">Never authority</text></g>
+  <g><rect x="60" y="390" width="136" height="136" rx="16" class="card"/><circle cx="84" cy="414" r="15" class="teal"/><text x="80" y="419" class="num">8</text><text x="80" y="454" class="h2 ink">Query + validate</text><text x="80" y="481" class="body muted">Typed read-only</text><text x="80" y="504" class="small muted">Dashboard v2</text></g>
+
+  <rect x="60" y="583" width="1080" height="79" rx="14" class="tealLight"/>
+  <text x="84" y="613" class="h2 ink">Decision authority stays deterministic</text>
+  <text x="84" y="640" class="body ink">Source evidence → exact ledger → reconciliation → owner and system rules → guarded model evidence → review</text>
+  <rect x="890" y="598" width="18" height="18" class="card"/><text x="920" y="612" class="small muted">Implemented</text><rect x="1015" y="598" width="18" height="18" class="dep"/><text x="1045" y="612" class="small muted">Dependent</text>
+</svg>

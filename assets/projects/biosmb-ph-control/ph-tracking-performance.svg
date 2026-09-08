@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Measured final pH plateaus versus reconstructed targets</title>
+  <desc id="desc">A line chart of eight laboratory setpoint blocks. Reconstructed targets rise from 3.9 to 5.5 and return to 4.3. Exact final-five-minute measured means are 3.8763, 4.2923, 4.6983, 5.0958, 5.4835, 5.0986, 4.6954, and 4.2894 pH.</desc>
+  <metadata>Figure ID: FIG-03; Evidence: E-LAB-02, E-LAB-05; Label: stored laboratory experiment with reconstructed targets</metadata>
+  <rect width="1200" height="720" fill="#FAF7F0"/>
+  <text x="70" y="66" font-family="Inter, Segoe UI, sans-serif" font-size="33" font-weight="700" fill="#173C3B">Measured pH followed the rising-and-falling schedule</text>
+  <text x="70" y="101" font-family="Inter, Segoe UI, sans-serif" font-size="18" fill="#456361">Final five-minute means from the Aug. 7 laboratory experiment</text>
+
+  <rect x="105" y="130" width="1030" height="430" rx="16" fill="#FFFFFF" stroke="#D5DFDC" stroke-width="2"/>
+  <g stroke="#DDE6E3" stroke-width="1">
+    <line x1="150" y1="460" x2="1080" y2="460"/>
+    <line x1="150" y1="380" x2="1080" y2="380"/>
+    <line x1="150" y1="300" x2="1080" y2="300"/>
+    <line x1="150" y1="220" x2="1080" y2="220"/>
+    <line x1="150" y1="140" x2="1080" y2="140"/>
+  </g>
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#456361" text-anchor="end">
+    <text x="140" y="465">3.8</text>
+    <text x="140" y="385">4.2</text>
+    <text x="140" y="305">4.6</text>
+    <text x="140" y="225">5.0</text>
+    <text x="140" y="145">5.4</text>
+  </g>
+  <text transform="translate(48 330) rotate(-90)" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#173C3B">pH</text>
+
+  <polyline points="150,440 280,360 410,280 540,200 670,120 800,200 930,280 1060,360" fill="none" stroke="#C47D10" stroke-width="4" stroke-dasharray="11 7"/>
+  <polyline points="150,444.733 280,361.545 410,280.347 540,200.849 670,123.305 800,200.284 930,280.924 1060,362.129" fill="none" stroke="#0B5D5B" stroke-width="5"/>
+
+  <g stroke="#0B5D5B" stroke-width="2">
+    <line x1="150" y1="441.950" x2="150" y2="447.516"/><line x1="143" y1="441.950" x2="157" y2="441.950"/><line x1="143" y1="447.516" x2="157" y2="447.516"/>
+    <line x1="280" y1="359.311" x2="280" y2="363.779"/><line x1="273" y1="359.311" x2="287" y2="359.311"/><line x1="273" y1="363.779" x2="287" y2="363.779"/>
+    <line x1="410" y1="277.735" x2="410" y2="282.958"/><line x1="403" y1="277.735" x2="417" y2="277.735"/><line x1="403" y1="282.958" x2="417" y2="282.958"/>
+    <line x1="540" y1="197.791" x2="540" y2="203.907"/><line x1="533" y1="197.791" x2="547" y2="197.791"/><line x1="533" y1="203.907" x2="547" y2="203.907"/>
+    <line x1="670" y1="120.352" x2="670" y2="126.258"/><line x1="663" y1="120.352" x2="677" y2="120.352"/><line x1="663" y1="126.258" x2="677" y2="126.258"/>
+    <line x1="800" y1="197.229" x2="800" y2="203.339"/><line x1="793" y1="197.229" x2="807" y2="197.229"/><line x1="793" y1="203.339" x2="807" y2="203.339"/>
+    <line x1="930" y1="278.514" x2="930" y2="283.334"/><line x1="923" y1="278.514" x2="937" y2="278.514"/><line x1="923" y1="283.334" x2="937" y2="283.334"/>
+    <line x1="1060" y1="359.385" x2="1060" y2="364.873"/><line x1="1053" y1="359.385" x2="1067" y2="359.385"/><line x1="1053" y1="364.873" x2="1067" y2="364.873"/>
+  </g>
+  <g fill="#0B5D5B" stroke="#FFFFFF" stroke-width="3">
+    <circle cx="150" cy="444.733" r="8"/><circle cx="280" cy="361.545" r="8"/><circle cx="410" cy="280.347" r="8"/><circle cx="540" cy="200.849" r="8"/>
+    <circle cx="670" cy="123.305" r="8"/><circle cx="800" cy="200.284" r="8"/><circle cx="930" cy="280.924" r="8"/><circle cx="1060" cy="362.129" r="8"/>
+  </g>
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="13" fill="#173C3B" text-anchor="middle">
+    <text x="150" y="492">1</text><text x="280" y="492">2</text><text x="410" y="492">3</text><text x="540" y="492">4</text>
+    <text x="670" y="492">5</text><text x="800" y="492">6</text><text x="930" y="492">7</text><text x="1060" y="492">8*</text>
+  </g>
+  <text x="615" y="526" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#173C3B">Scheduled block</text>
+
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="15">
+    <line x1="735" y1="585" x2="785" y2="585" stroke="#0B5D5B" stroke-width="5"/><circle cx="760" cy="585" r="7" fill="#0B5D5B"/>
+    <text x="798" y="591" fill="#173C3B">measured final 5-min mean ± 1 SD</text>
+    <line x1="735" y1="618" x2="785" y2="618" stroke="#C47D10" stroke-width="4" stroke-dasharray="10 6"/>
+    <text x="798" y="624" fill="#173C3B">reconstructed target</text>
+  </g>
+  <text x="105" y="591" font-family="Inter, Segoe UI, sans-serif" font-size="15" fill="#456361">Mean absolute error of block means: 0.0088 pH</text>
+  <text x="105" y="620" font-family="Inter, Segoe UI, sans-serif" font-size="15" fill="#456361">* Final block contains 26 actions; all others contain 30.</text>
+
+  <rect x="70" y="660" width="1060" height="38" rx="11" fill="#173C3B"/>
+  <text x="600" y="685" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#FFFFFF">FIG-03 · Stored laboratory experiment; targets reconstructed, not logged · Evidence: E-LAB-02, E-LAB-05</text>
+</svg>

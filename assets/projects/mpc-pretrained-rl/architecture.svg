@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">MPC-pretrained reinforcement-learning workflow</title>
+  <desc id="desc">Model predictive control demonstrations initialize an actor critic agent before online closed-loop interaction with a process.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0b6862"/></marker></defs>
+  <rect width="1200" height="520" rx="26" fill="#fffdf7"/>
+  <g font-family="Arial, sans-serif" fill="#123337">
+    <text x="70" y="72" font-size="24" font-weight="700" fill="#0b6862">OFFLINE PRETRAINING</text>
+    <rect x="70" y="105" width="245" height="126" rx="18" fill="#e9f0ec" stroke="#0b6862" stroke-width="3"/>
+    <text x="192" y="157" text-anchor="middle" font-size="25" font-weight="700">MPC expert</text><text x="192" y="191" text-anchor="middle" font-size="19">state–action data</text>
+    <rect x="400" y="105" width="275" height="126" rx="18" fill="#f7f3e8" stroke="#d69b38" stroke-width="3"/>
+    <text x="538" y="157" text-anchor="middle" font-size="25" font-weight="700">Replay memory</text><text x="538" y="191" text-anchor="middle" font-size="19">expert initialization</text>
+    <rect x="760" y="105" width="285" height="126" rx="18" fill="#e9f0ec" stroke="#0b6862" stroke-width="3"/>
+    <text x="902" y="157" text-anchor="middle" font-size="25" font-weight="700">Actor–critic agent</text><text x="902" y="191" text-anchor="middle" font-size="19">pretrained policy</text>
+    <path d="M315 168 H392 M675 168 H752" stroke="#0b6862" stroke-width="5" marker-end="url(#a)"/>
+    <text x="70" y="314" font-size="24" font-weight="700" fill="#0b6862">ONLINE CLOSED LOOP</text>
+    <rect x="310" y="350" width="265" height="110" rx="18" fill="#0b6862"/>
+    <text x="442" y="400" text-anchor="middle" font-size="25" font-weight="700" fill="white">RL controller</text><text x="442" y="432" text-anchor="middle" font-size="18" fill="white">control action</text>
+    <rect x="735" y="350" width="265" height="110" rx="18" fill="#f1dfb8" stroke="#d69b38" stroke-width="3"/>
+    <text x="868" y="400" text-anchor="middle" font-size="25" font-weight="700">Process system</text><text x="868" y="432" text-anchor="middle" font-size="18">measurements</text>
+    <path d="M575 405 H727" stroke="#0b6862" stroke-width="5" marker-end="url(#a)"/><path d="M868 460 C868 500 442 500 442 468" fill="none" stroke="#0b6862" stroke-width="5" marker-end="url(#a)"/>
+    <path d="M902 231 C902 286 442 286 442 342" fill="none" stroke="#d69b38" stroke-width="5" marker-end="url(#a)"/>
+  </g>
+</svg>

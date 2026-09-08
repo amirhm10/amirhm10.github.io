@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Distillation policy-handoff downside with and without supervisory gating</title>
+  <desc id="desc">A horizontal dot plot compares mean worst post-handoff episode reward for three assistance configurations. Supervisor-gated values are less negative than no-gate values for dynamic-matrix, residual, and combined assistance. The values are descriptive means plus or minus one sample standard deviation across separately saved runs with incomplete seed metadata.</desc>
+  <defs><style>
+    .bg{fill:#fbfaf8}.head{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:38px;font-weight:750;fill:#1e293b}.sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;fill:#64748b}.label{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:21px;font-weight:700;fill:#334155}.small{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:17px;fill:#64748b}.axis{stroke:#94a3b8;stroke-width:2}.grid{stroke:#e2e8f0;stroke-width:1}.connector{stroke:#cbd5e1;stroke-width:5}.nogate{fill:#c2413b}.sg{fill:#0f8a73}.value{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:17px;font-weight:700}.legend{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:18px;fill:#334155}
+  </style></defs>
+  <rect class="bg" width="1400" height="760" rx="28"/>
+  <text class="head" x="60" y="70">The gate limited the worst policy-handoff drops</text>
+  <text class="sub" x="60" y="106">Distillation Scenario 1 · worst post-handoff episode reward · higher and closer to zero is better</text>
+  <circle class="sg" cx="1040" cy="69" r="9"/><text class="legend" x="1058" y="75">SG</text>
+  <circle class="nogate" cx="1135" cy="69" r="9"/><text class="legend" x="1153" y="75">No-SG</text>
+
+  <line class="axis" x1="280" y1="635" x2="1300" y2="635"/>
+  <line class="grid" x1="280" y1="150" x2="280" y2="635"/><line class="grid" x1="450" y1="150" x2="450" y2="635"/><line class="grid" x1="620" y1="150" x2="620" y2="635"/><line class="grid" x1="790" y1="150" x2="790" y2="635"/><line class="grid" x1="960" y1="150" x2="960" y2="635"/><line class="grid" x1="1130" y1="150" x2="1130" y2="635"/><line class="grid" x1="1300" y1="150" x2="1300" y2="635"/>
+  <text class="small" x="280" y="666" text-anchor="middle">−600</text><text class="small" x="450" y="666" text-anchor="middle">−500</text><text class="small" x="620" y="666" text-anchor="middle">−400</text><text class="small" x="790" y="666" text-anchor="middle">−300</text><text class="small" x="960" y="666" text-anchor="middle">−200</text><text class="small" x="1130" y="666" text-anchor="middle">−100</text><text class="small" x="1300" y="666" text-anchor="middle">0</text>
+
+  <text class="label" x="60" y="220">Dynamic matrix</text><text class="small" x="60" y="246">SG n=7, No-SG n=5</text>
+  <line class="connector" x1="1042" y1="222" x2="1236" y2="222"/>
+  <circle class="nogate" cx="1042" cy="222" r="13"/><circle class="sg" cx="1236" cy="222" r="13"/>
+  <text class="value" x="1022" y="195" text-anchor="end" fill="#9f2d29">−151.77 ± 62.53</text><text class="value" x="1254" y="195" fill="#08705f">−37.56 ± 30.79</text>
+
+  <text class="label" x="60" y="370">Residual</text><text class="small" x="60" y="396">SG n=7, No-SG n=6</text>
+  <line class="connector" x1="1119" y1="372" x2="1298" y2="372"/>
+  <circle class="nogate" cx="1119" cy="372" r="13"/><circle class="sg" cx="1298" cy="372" r="13"/>
+  <text class="value" x="1099" y="345" text-anchor="end" fill="#9f2d29">−106.28 ± 21.78</text><text class="value" x="1275" y="345" text-anchor="end" fill="#08705f">−1.25 ± 7.51</text>
+
+  <text class="label" x="60" y="520">Combined</text><text class="small" x="60" y="546">SG n=6, No-SG n=4</text>
+  <line class="connector" x1="414" y1="522" x2="1276" y2="522"/>
+  <circle class="nogate" cx="414" cy="522" r="13"/><circle class="sg" cx="1276" cy="522" r="13"/>
+  <text class="value" x="434" y="495" fill="#9f2d29">−521.30 ± 42.93</text><text class="value" x="1294" y="495" text-anchor="end" fill="#08705f">−14.14 ± 14.06</text>
+
+  <text class="small" x="60" y="708">Means and sample SDs summarize separately saved legacy bundles. Seed IDs and complete source commits were not retained.</text>
+  <text class="small" x="60" y="737">This supports a scenario-specific handoff claim. It is not statistical significance and does not certify process safety.</text>
+</svg>

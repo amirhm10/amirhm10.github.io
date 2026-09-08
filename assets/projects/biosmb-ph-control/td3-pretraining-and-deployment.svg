@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">TD3 pretraining, laboratory application, and later online adaptation</title>
+  <desc id="desc">A staged diagram separating 500,000 simulation training steps, export of a verified actor bundle, the demonstrated August 7 laboratory inference run, and a later online-adaptation extension that is implemented but not demonstrated in the available lab dataset.</desc>
+  <metadata>Figure ID: FIG-02; Evidence: E-RL-01, E-RL-02, E-RL-03, E-RL-04, E-RL-05, E-PROV-01, E-LAB-02; Label: simulation plus laboratory plus implemented-only extension</metadata>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#0B5D5B"/></marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#173C3B" flood-opacity="0.14"/></filter>
+  </defs>
+  <rect width="1200" height="720" fill="#FAF7F0"/>
+  <text x="70" y="72" font-family="Inter, Segoe UI, sans-serif" font-size="34" font-weight="700" fill="#173C3B">Pretrain once, validate in the lab, adapt with evidence</text>
+  <text x="70" y="108" font-family="Inter, Segoe UI, sans-serif" font-size="18" fill="#456361">The stages are deliberately separated so software maturity is not mistaken for laboratory proof</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Segoe UI, sans-serif">
+    <rect x="70" y="175" width="280" height="300" rx="22" fill="#E9F3F1" stroke="#0B5D5B" stroke-width="3"/>
+    <rect x="94" y="195" width="112" height="30" rx="15" fill="#0B5D5B"/>
+    <text x="150" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">SIMULATION</text>
+    <text x="100" y="270" font-size="24" font-weight="700" fill="#173C3B">Offline TD3 training</text>
+    <text x="100" y="307" font-size="17" fill="#456361">500,000 interaction steps</text>
+    <text x="100" y="337" font-size="17" fill="#456361">ideal buffer chemistry</text>
+    <text x="100" y="367" font-size="17" fill="#456361">actor + twin critics</text>
+    <text x="100" y="397" font-size="17" fill="#456361">lab-informed target range</text>
+    <path d="M108 434 H308" stroke="#C47D10" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="150" cy="434" r="13" fill="#F3B33D"/>
+    <circle cx="215" cy="434" r="13" fill="#F3B33D"/>
+    <circle cx="280" cy="434" r="13" fill="#F3B33D"/>
+
+    <rect x="460" y="230" width="280" height="190" rx="22" fill="#FFFFFF" stroke="#C47D10" stroke-width="3"/>
+    <rect x="484" y="250" width="100" height="30" rx="15" fill="#F3B33D"/>
+    <text x="534" y="271" text-anchor="middle" font-size="14" font-weight="700" fill="#173C3B">EXPORT</text>
+    <text x="490" y="325" font-size="24" font-weight="700" fill="#173C3B">Verified actor bundle</text>
+    <text x="490" y="359" font-size="16" fill="#456361">weights · manifest · test cases</text>
+    <text x="490" y="389" font-size="16" fill="#456361">fixed state/action contract</text>
+
+    <rect x="850" y="150" width="280" height="220" rx="22" fill="#0B5D5B" stroke="#0B5D5B" stroke-width="3"/>
+    <rect x="874" y="170" width="150" height="30" rx="15" fill="#F3B33D"/>
+    <text x="949" y="191" text-anchor="middle" font-size="14" font-weight="700" fill="#173C3B">LAB DEMONSTRATED</text>
+    <text x="880" y="246" font-size="24" font-weight="700" fill="#FFFFFF">Pretrained inference</text>
+    <text x="880" y="280" font-size="16" fill="#D7ECE8">Aug. 7 hardware-connected run</text>
+    <text x="880" y="310" font-size="16" fill="#D7ECE8">236 action changes</text>
+    <text x="880" y="340" font-size="16" fill="#D7ECE8">rising + falling pH plateaus</text>
+
+    <rect x="850" y="430" width="280" height="180" rx="22" fill="#FFF3D6" stroke="#C47D10" stroke-width="3" stroke-dasharray="10 7"/>
+    <rect x="874" y="450" width="210" height="30" rx="15" fill="#F3B33D"/>
+    <text x="979" y="471" text-anchor="middle" font-size="14" font-weight="700" fill="#173C3B">IMPLEMENTED, NOT SHOWN</text>
+    <text x="880" y="525" font-size="23" font-weight="700" fill="#69420A">Online adaptation</text>
+    <text x="880" y="559" font-size="16" fill="#69420A">replay warm-up · critic-first</text>
+    <text x="880" y="587" font-size="16" fill="#69420A">later software extension</text>
+  </g>
+
+  <g fill="none" stroke="#0B5D5B" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M350 325 H445"/>
+    <path d="M740 325 H820 Q835 325 835 310 V260 H835"/>
+    <path d="M740 345 H800 Q825 345 825 370 V520 H835"/>
+  </g>
+
+  <rect x="70" y="650" width="1060" height="40" rx="12" fill="#173C3B"/>
+  <text x="600" y="676" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#FFFFFF">FIG-02 · Simulation → laboratory application → implemented-only extension · Evidence: E-RL-01–05, E-PROV-01, E-LAB-02</text>
+</svg>

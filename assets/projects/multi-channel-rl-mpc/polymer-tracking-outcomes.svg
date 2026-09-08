@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">Polymerization Scenario 2 evaluation outcomes</title>
+  <desc id="desc">Four metric cards compare one saved combined supervisor-gated trajectory with offset-free MPC in deterministic episode 300. Combined assistance reduces viscosity RMSE from 0.2396 to 0.0957 liters per gram and temperature RMSE from 1.160 to 0.848 kelvin. Band-normalized error decreases from 11.415 to 4.561, while normalized input movement increases from 1.683 to 4.675 percent.</desc>
+  <defs><style>
+    .bg{fill:#f5f7fb}.card{fill:#fff;stroke:#dbe3ef;stroke-width:2}.head{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:38px;font-weight:750;fill:#14233a}.sub{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;fill:#53657d}.label{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:20px;font-weight:700;fill:#253650}.big{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:31px;font-weight:750}.small{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:17px;fill:#62738a}.base{fill:#8494aa}.sg{fill:#0b8f7b}.track{fill:#e8edf4}.trade{fill:#d97706}.chip{fill:#e0f5ef}.chipTrade{fill:#fff0d8}
+  </style></defs>
+  <rect class="bg" width="1400" height="780" rx="28"/>
+  <text class="head" x="60" y="70">Tracking improved, with a clear control-effort tradeoff</text>
+  <text class="sub" x="60" y="106">Polymerization CSTR · Scenario 2 · deterministic episode 300 · one saved trajectory per configuration</text>
+  <rect x="1130" y="42" width="205" height="44" rx="22" fill="#e8eefb"/><text class="small" x="1232" y="70" text-anchor="middle" fill="#315a9b">SIMULATION EVIDENCE</text>
+
+  <rect class="card" x="60" y="150" width="620" height="235" rx="24"/>
+  <text class="label" x="95" y="195">Viscosity RMSE (L/g)</text>
+  <rect class="chip" x="492" y="169" width="150" height="38" rx="19"/><text class="small" x="567" y="194" text-anchor="middle" fill="#08705f">−60.1%</text>
+  <text class="small" x="95" y="245">Offset-free MPC</text><text class="big" x="642" y="247" text-anchor="end" fill="#506075">0.2396</text>
+  <rect class="track" x="95" y="263" width="500" height="18" rx="9"/><rect class="base" x="95" y="263" width="500" height="18" rx="9"/>
+  <text class="small" x="95" y="322">Combined SG</text><text class="big" x="642" y="324" text-anchor="end" fill="#08705f">0.0957</text>
+  <rect class="track" x="95" y="340" width="500" height="18" rx="9"/><rect class="sg" x="95" y="340" width="200" height="18" rx="9"/>
+
+  <rect class="card" x="720" y="150" width="620" height="235" rx="24"/>
+  <text class="label" x="755" y="195">Temperature RMSE (K)</text>
+  <rect class="chip" x="1152" y="169" width="150" height="38" rx="19"/><text class="small" x="1227" y="194" text-anchor="middle" fill="#08705f">−26.9%</text>
+  <text class="small" x="755" y="245">Offset-free MPC</text><text class="big" x="1302" y="247" text-anchor="end" fill="#506075">1.160</text>
+  <rect class="track" x="755" y="263" width="500" height="18" rx="9"/><rect class="base" x="755" y="263" width="500" height="18" rx="9"/>
+  <text class="small" x="755" y="322">Combined SG</text><text class="big" x="1302" y="324" text-anchor="end" fill="#08705f">0.848</text>
+  <rect class="track" x="755" y="340" width="500" height="18" rx="9"/><rect class="sg" x="755" y="340" width="366" height="18" rx="9"/>
+
+  <rect class="card" x="60" y="420" width="620" height="235" rx="24"/>
+  <text class="label" x="95" y="465">Band-normalized mean absolute error</text>
+  <text class="small" x="95" y="515">Offset-free MPC</text><text class="big" x="642" y="517" text-anchor="end" fill="#506075">11.415</text>
+  <rect class="track" x="95" y="533" width="500" height="18" rx="9"/><rect class="base" x="95" y="533" width="500" height="18" rx="9"/>
+  <text class="small" x="95" y="592">Combined SG</text><text class="big" x="642" y="594" text-anchor="end" fill="#08705f">4.561</text>
+  <rect class="track" x="95" y="610" width="500" height="18" rx="9"/><rect class="sg" x="95" y="610" width="200" height="18" rx="9"/>
+
+  <rect class="card" x="720" y="420" width="620" height="235" rx="24"/>
+  <text class="label" x="755" y="465">Normalized input movement (%)</text>
+  <rect class="chipTrade" x="1110" y="439" width="192" height="38" rx="19"/><text class="small" x="1206" y="464" text-anchor="middle" fill="#9a4f00">more control activity</text>
+  <text class="small" x="755" y="515">Offset-free MPC</text><text class="big" x="1302" y="517" text-anchor="end" fill="#506075">1.683</text>
+  <rect class="track" x="755" y="533" width="500" height="18" rx="9"/><rect class="base" x="755" y="533" width="180" height="18" rx="9"/>
+  <text class="small" x="755" y="592">Combined SG</text><text class="big" x="1302" y="594" text-anchor="end" fill="#9a4f00">4.675</text>
+  <rect class="track" x="755" y="610" width="500" height="18" rx="9"/><rect class="trade" x="755" y="610" width="500" height="18" rx="9"/>
+
+  <text class="small" x="60" y="706">Lower is better for all four metrics. The input-movement increase is reported as a tradeoff, not hidden.</text>
+  <text class="small" x="60" y="738">Source: manuscript Table 2 and Results Section 4.2.2. This is scenario-specific simulation evidence, not a statistical claim.</text>
+</svg>

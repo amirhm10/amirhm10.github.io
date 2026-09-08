@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" role="img" aria-labelledby="title desc">
+  <title id="title">Stability-aware reinforcement learning architecture</title>
+  <desc id="desc">A left-to-right decision flow in which measurements feed a TD3 policy, a model predicts one step, a Lyapunov test accepts the candidate or sends it to GART-LMPC fallback, and the applied input drives the polymer process. Training-only reward, replay, and TD3 updates are shown in a separate lower lane.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0B1F33" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#31536F"/>
+    </marker>
+    <style>
+      .bg { fill:#F7FAFC; }
+      .title { font:700 32px Arial,sans-serif; fill:#102A43; }
+      .subtitle { font:400 16px Arial,sans-serif; fill:#486581; }
+      .h { font:700 18px Arial,sans-serif; fill:#102A43; }
+      .label { font:600 14px Arial,sans-serif; fill:#243B53; }
+      .small { font:400 12px Arial,sans-serif; fill:#627D98; }
+      .value { font:700 14px Arial,sans-serif; fill:#102A43; }
+    </style>
+  </defs>
+  <rect class="bg" width="100%" height="100%" rx="24"/>
+
+  <text class="title" x="54" y="58">RL proposes. The stability layer decides what reaches the process.</text>
+  <text class="subtitle" x="54" y="88">Online execution is shown in the main lane; learning-only operations are separated below.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="145" width="180" height="106" rx="16" fill="#E8F1F8" stroke="#8FB3CC" stroke-width="2"/>
+    <rect x="270" y="145" width="180" height="106" rx="16" fill="#E7F7F4" stroke="#53A99A" stroke-width="2"/>
+    <rect x="490" y="145" width="190" height="106" rx="16" fill="#FFF2D8" stroke="#DDA94B" stroke-width="2"/>
+    <rect x="720" y="123" width="210" height="150" rx="18" fill="#FBE9E7" stroke="#D66A5E" stroke-width="3"/>
+    <rect x="970" y="145" width="180" height="106" rx="16" fill="#E8F1F8" stroke="#8FB3CC" stroke-width="2"/>
+  </g>
+  <text class="h" x="140" y="179" text-anchor="middle">Measurements + target</text>
+  <text class="small" x="140" y="205" text-anchor="middle">observer state, viscosity,</text>
+  <text class="small" x="140" y="223" text-anchor="middle">temperature, previous input</text>
+  <text class="h" x="360" y="179" text-anchor="middle">TD3 policy</text>
+  <text class="small" x="360" y="205" text-anchor="middle">fast neural policy produces</text>
+  <text class="small" x="360" y="223" text-anchor="middle">a candidate control action</text>
+  <text class="h" x="585" y="179" text-anchor="middle">One-step prediction</text>
+  <text class="small" x="585" y="205" text-anchor="middle">identified linear model predicts</text>
+  <text class="small" x="585" y="223" text-anchor="middle">the candidate next state</text>
+  <text class="h" x="825" y="162" text-anchor="middle">Lyapunov acceptance test</text>
+  <text class="small" x="825" y="191" text-anchor="middle">Is the candidate within input limits</text>
+  <text class="small" x="825" y="210" text-anchor="middle">and consistent with the tested</text>
+  <text class="small" x="825" y="229" text-anchor="middle">one-step decrease condition?</text>
+  <text class="h" x="1060" y="179" text-anchor="middle">Applied input</text>
+  <text class="small" x="1060" y="205" text-anchor="middle">accepted TD3 action or</text>
+  <text class="small" x="1060" y="223" text-anchor="middle">controller-computed replacement</text>
+
+  <path d="M230 198 H270" stroke="#31536F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M450 198 H490" stroke="#31536F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M680 198 H720" stroke="#31536F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M930 198 H970" stroke="#178A73" stroke-width="4" marker-end="url(#arrow)"/>
+  <text class="label" x="950" y="182" text-anchor="middle" fill="#178A73">accept</text>
+
+  <g filter="url(#shadow)">
+    <rect x="720" y="333" width="210" height="118" rx="18" fill="#FFF1E8" stroke="#E37A3F" stroke-width="3"/>
+    <rect x="970" y="339" width="180" height="106" rx="16" fill="#E8F1F8" stroke="#8FB3CC" stroke-width="2"/>
+  </g>
+  <text class="h" x="825" y="370" text-anchor="middle">GART-LMPC fallback</text>
+  <text class="small" x="825" y="396" text-anchor="middle">compute a certified first move</text>
+  <text class="small" x="825" y="415" text-anchor="middle">around an accepted reachable</text>
+  <text class="small" x="825" y="434" text-anchor="middle">GART target; otherwise hold input</text>
+  <text class="h" x="1060" y="373" text-anchor="middle">Process + feedback</text>
+  <text class="small" x="1060" y="399" text-anchor="middle">polymer CSTR responds;</text>
+  <text class="small" x="1060" y="417" text-anchor="middle">measurements close the loop</text>
+
+  <path d="M825 273 V333" stroke="#D66A5E" stroke-width="4" marker-end="url(#arrow)"/>
+  <text class="label" x="842" y="309" fill="#B3473E">reject</text>
+  <path d="M930 392 H970" stroke="#E37A3F" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1060 251 V339" stroke="#31536F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1060 445 V510 H140 V251" fill="none" stroke="#31536F" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrow)"/>
+  <text class="small" x="546" y="500" text-anchor="middle">measured outputs update the observer and the next TD3 observation</text>
+
+  <rect x="50" y="566" width="1100" height="130" rx="18" fill="#FFFFFF" stroke="#BCCCDC" stroke-width="2" stroke-dasharray="8 6"/>
+  <text class="h" x="76" y="602">Training only</text>
+  <text class="label" x="76" y="632">Executed transition</text>
+  <text class="small" x="76" y="653">next measurement + applied action</text>
+  <path d="M285 634 H388" stroke="#31536F" stroke-width="3" marker-end="url(#arrow)"/>
+  <text class="label" x="415" y="632">Reward + replay</text>
+  <text class="small" x="415" y="653">store the action the process actually received</text>
+  <path d="M690 634 H793" stroke="#31536F" stroke-width="3" marker-end="url(#arrow)"/>
+  <text class="label" x="820" y="632">TD3 updates</text>
+  <text class="small" x="820" y="653">twin critics, delayed actor updates, mixed replay</text>
+  <text class="small" x="76" y="680">Offline initialization can imitate offset-free MPC; it improves the starting policy but is not the certificate.</text>
+
+</svg>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060" role="img" aria-labelledby="title desc">
+  <title id="title">MPC-pretrained TD3 workflow from expert demonstrations to online reinforcement learning</title>
+  <desc id="desc">A four-lane architecture diagram separates offline demonstration generation, TD3 policy pretraining, online reinforcement learning, and final evaluation. MPC generates offline examples but is not the online controller. During online control, the bounded TD3 actor applies actions to the process, executed transitions enter an online replay buffer, and a mixture of prioritized, recent, and uniform samples updates twin critics and the actor.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#51657A"/></marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2F6FED"/></marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6F52B5"/></marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#183B56" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1600" height="1060" fill="#F7F9FC"/>
+  <text x="70" y="58" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="38" font-weight="700" fill="#12304A">TD3 starts from expert demonstrations and keeps learning online</text>
+  <text x="70" y="96" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" fill="#4B5E70">Offline demonstrations, policy initialization, online interaction, and evaluation are separate stages</text>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="50" y="125" width="1500" height="190" rx="24" fill="#ECF3FF" stroke="#BCD0F7" stroke-width="2"/>
+    <text x="78" y="160" font-size="19" font-weight="700" fill="#2F6FED">1  OFFLINE DEMONSTRATION GENERATION</text>
+    <g filter="url(#shadow)">
+      <rect x="90" y="185" width="255" height="92" rx="16" fill="#FFFFFF"/>
+      <text x="218" y="219" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Linear process model</text>
+      <text x="218" y="247" text-anchor="middle" font-size="16" fill="#4B5E70">sample state, target, previous input</text>
+      <rect x="425" y="185" width="250" height="92" rx="16" fill="#FFFFFF"/>
+      <text x="550" y="219" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">OF-MPC expert</text>
+      <text x="550" y="247" text-anchor="middle" font-size="16" fill="#4B5E70">solve and keep the first move</text>
+      <rect x="755" y="185" width="300" height="92" rx="16" fill="#FFFFFF"/>
+      <text x="905" y="215" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">One-step demonstration</text>
+      <text x="905" y="244" text-anchor="middle" font-size="16" fill="#4B5E70">(state, MPC action, reward, next state)</text>
+      <rect x="1135" y="185" width="315" height="92" rx="16" fill="#DDE9FF" stroke="#2F6FED"/>
+      <text x="1292" y="215" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Offline dataset</text>
+      <text x="1292" y="244" text-anchor="middle" font-size="16" fill="#4B5E70">about 3 million transitions</text>
+    </g>
+    <g stroke="#51657A" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M345 231 H415"/><path d="M675 231 H745"/><path d="M1055 231 H1125"/></g>
+    <text x="1460" y="301" text-anchor="end" font-size="15" font-weight="700" fill="#2F6FED">MPC's direct control role ends after demonstration generation</text>
+
+    <rect x="50" y="335" width="1500" height="190" rx="24" fill="#F2EEFF" stroke="#CDC1F4" stroke-width="2"/>
+    <text x="78" y="370" font-size="19" font-weight="700" fill="#6F52B5">2  POLICY PRETRAINING</text>
+    <g filter="url(#shadow)">
+      <rect x="145" y="395" width="315" height="92" rx="16" fill="#FFFFFF"/>
+      <text x="302" y="428" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Behavioral cloning</text>
+      <text x="302" y="456" text-anchor="middle" font-size="16" fill="#4B5E70">actor learns MPC actions</text>
+      <rect x="620" y="395" width="315" height="92" rx="16" fill="#FFFFFF"/>
+      <text x="777" y="428" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Offline TD3 critics</text>
+      <text x="777" y="456" text-anchor="middle" font-size="16" fill="#4B5E70">twin Q networks learn targets</text>
+      <rect x="1095" y="395" width="360" height="92" rx="16" fill="#E7DFFF" stroke="#6F52B5"/>
+      <text x="1275" y="428" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Pretrained TD3 checkpoint</text>
+      <text x="1275" y="456" text-anchor="middle" font-size="16" fill="#4B5E70">bounded actor + twin critics</text>
+    </g>
+    <path d="M1292 277 V350 H302 V385" stroke="#6F52B5" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <path d="M1292 277 V365 H777 V385" stroke="#6F52B5" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <path d="M460 441 H560 V500 H1065 V470 H1085" stroke="#51657A" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <path d="M935 441 H1085" stroke="#51657A" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+    <rect x="50" y="545" width="1500" height="350" rx="24" fill="#EAF8F4" stroke="#A7D8CA" stroke-width="2"/>
+    <text x="78" y="580" font-size="19" font-weight="700" fill="#0E8A73">3  ONLINE RL CONTROL AND LEARNING</text>
+    <g filter="url(#shadow)">
+      <rect x="90" y="620" width="250" height="94" rx="16" fill="#FFFFFF"/>
+      <text x="215" y="653" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">RL observation</text>
+      <text x="215" y="681" text-anchor="middle" font-size="15" fill="#4B5E70">estimated state + target + prior input</text>
+      <rect x="420" y="620" width="225" height="94" rx="16" fill="#DDF4ED" stroke="#0E8A73"/>
+      <text x="532" y="653" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">TD3 actor</text>
+      <text x="532" y="681" text-anchor="middle" font-size="15" fill="#4B5E70">direct policy evaluation</text>
+      <rect x="725" y="620" width="230" height="94" rx="16" fill="#FFFFFF"/>
+      <text x="840" y="653" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Action projection</text>
+      <text x="840" y="681" text-anchor="middle" font-size="15" fill="#4B5E70">enforce actuator bounds only</text>
+      <rect x="1035" y="620" width="250" height="94" rx="16" fill="#DDF4ED" stroke="#0E8A73"/>
+      <text x="1160" y="653" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Process interaction</text>
+      <text x="1160" y="681" text-anchor="middle" font-size="15" fill="#4B5E70">final RL action is applied</text>
+      <rect x="1325" y="620" width="175" height="94" rx="16" fill="#FFFFFF"/>
+      <text x="1412" y="653" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Reward</text>
+      <text x="1412" y="681" text-anchor="middle" font-size="15" fill="#4B5E70">executed transition</text>
+      <rect x="115" y="765" width="300" height="88" rx="16" fill="#FFFFFF"/>
+      <text x="265" y="797" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Online replay buffer</text>
+      <text x="265" y="824" text-anchor="middle" font-size="15" fill="#4B5E70">initially filled by Phase 0 rollouts</text>
+      <rect x="510" y="765" width="350" height="88" rx="16" fill="#FFFFFF"/>
+      <text x="685" y="797" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">Mixed replay sampler</text>
+      <text x="685" y="824" text-anchor="middle" font-size="15" fill="#4B5E70">50% prioritized | 20% recent | 30% uniform</text>
+      <rect x="955" y="765" width="350" height="88" rx="16" fill="#DDF4ED" stroke="#0E8A73"/>
+      <text x="1130" y="797" text-anchor="middle" font-size="20" font-weight="700" fill="#12304A">TD3 updates</text>
+      <text x="1130" y="824" text-anchor="middle" font-size="15" fill="#4B5E70">twin critics + delayed actor updates</text>
+    </g>
+    <g stroke="#0E8A73" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M340 667 H410"/><path d="M645 667 H715"/><path d="M955 667 H1025"/><path d="M1285 667 H1315"/><path d="M1412 714 V742 H265 V755"/><path d="M415 809 H500"/><path d="M860 809 H945"/></g>
+    <path d="M1305 809 H1515 V595 H532 V610" stroke="#6F52B5" stroke-width="3" stroke-dasharray="9 7" fill="none" marker-end="url(#arrowPurple)"/>
+    <path d="M1275 487 V535 H532 V610" stroke="#6F52B5" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <text x="78" y="880" font-size="15" fill="#38695C">Warm-start schedule: Phase 0 actor fixed and buffer fill; Phase 1 critics only; Phase 2 actor and critics. Demonstrations train the checkpoint offline and are not documented as seeding the online replay buffer.</text>
+
+    <rect x="50" y="915" width="1500" height="110" rx="24" fill="#FFF6E8" stroke="#F5C984" stroke-width="2"/>
+    <text x="78" y="950" font-size="19" font-weight="700" fill="#A26000">4  FINAL EVALUATION</text>
+    <text x="220" y="991" font-size="18" fill="#24384B">Target actor</text>
+    <path d="M335 985 H500" stroke="#51657A" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <text x="520" y="991" font-size="18" fill="#24384B">no exploration noise</text>
+    <path d="M710 985 H875" stroke="#51657A" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <text x="895" y="991" font-size="18" fill="#24384B">no network updates</text>
+    <path d="M1070 985 H1235" stroke="#51657A" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <text x="1255" y="991" font-size="18" font-weight="700" fill="#A26000">RL controls the process</text>
+  </g>
+</svg>

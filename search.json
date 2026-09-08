@@ -1,0 +1,387 @@
+[
+  {
+    "objectID": "research/stability-aware-rl.html#system-architecture",
+    "href": "research/stability-aware-rl.html#system-architecture",
+    "title": "Stability-Aware Reinforcement Learning",
+    "section": "System architecture",
+    "text": "System architecture\n\n\n\n\n\nStability-aware TD3 execution and learning workflow. TD3 proposes a candidate process input; the identified model and accepted GART target define a one-step Lyapunov check; accepted proposals or GART-LMPC replacement moves are applied to the process."
+  },
+  {
+    "objectID": "research/stability-aware-rl.html#contribution-and-implementation",
+    "href": "research/stability-aware-rl.html#contribution-and-implementation",
+    "title": "Stability-Aware Reinforcement Learning",
+    "section": "Contribution and implementation",
+    "text": "Contribution and implementation\n\nTD3 receives an observer-based process state, requested viscosity and temperature targets, and previous inputs, then proposes bounded coolant- and monomer-flow commands.\nAn identified model and accepted Guarded Admissible Reachable Target (GART) evaluate each proposal against model, input, move, and one-step Lyapunov checks. A failed proposal is replaced by a GART-LMPC move; if no usable replacement exists, the implementation clips and holds the previous input without treating that contingency as automatically certified.\nMPC first-move examples initialize the TD3 actor before online learning. Twin critics, delayed actor updates, target-policy smoothing, and mixed replay learn from the control action that was actually applied rather than from a rejected proposal.\n\n\nImplementation: Python · PyTorch · CVXPY"
+  },
+  {
+    "objectID": "research/stability-aware-rl.html#results-and-evaluation",
+    "href": "research/stability-aware-rl.html#results-and-evaluation",
+    "title": "Stability-Aware Reinforcement Learning",
+    "section": "Results and evaluation",
+    "text": "Results and evaluation\n\n\nInitial adaptation, eight retained simulation runs per method: gated MPC-pretrained TD3 achieved viscosity RMSE of 0.132 +/- 0.002 L/g, temperature RMSE of 0.317 +/- 0.016 K, and 2.47 +/- 0.36% actual interventions, compared with 0.142 +/- 0.002 L/g, 0.374 +/- 0.014 K, and 3.62 +/- 0.52% for gated cold-start TD3.\n\n\nContinuation, eight retained simulation runs per method: gated MPC-pretrained TD3 achieved viscosity RMSE of 0.125 +/- 0.002 L/g, temperature RMSE of 0.274 +/- 0.014 K, and 2.14 +/- 0.50% actual interventions, compared with 0.129 +/- 0.003 L/g, 0.334 +/- 0.019 K, and 3.54 +/- 0.48% for gated cold-start TD3.\n\n\nIn one continued-online-learning new-setpoint test, final-cycle gated-TD3 RMSE was 0.0965 L/g for viscosity and 0.512 K for temperature, compared with 0.1169 L/g and 0.566 K without the gate and 0.2287 L/g and 1.094 K for deterministic GART-LMPC. Actual gated interventions occurred on 2.18% of samples during the first 100 cycles and 0.125% during the final cycle; the ungated trajectory failed the same diagnostic condition on 12.09% and 18.75% of samples.\n\n\n\n\n\n\n\nTracking and authority metrics during initial adaptation and continuation. Values are mean plus or minus one standard deviation over eight retained runs per TD3 configuration; ungated rows show diagnostic certificate failures and gated rows show actual interventions.\n\n\n\n\n\n\n\nSingle-run new-setpoint online-adaptation summary. The gated TD3 trajectory has lower final-cycle tracking error than the same starting TD3 policy without the gate and deterministic GART-LMPC; authority-event types remain explicitly separated."
+  },
+  {
+    "objectID": "research/stability-aware-rl.html#limitations-and-evidence-maturity",
+    "href": "research/stability-aware-rl.html#limitations-and-evidence-maturity",
+    "title": "Stability-Aware Reinforcement Learning",
+    "section": "Limitations and evidence maturity",
+    "text": "Limitations and evidence maturity\n\nThe evidence is limited to a nonlinear polymer-CSTR simulation and a local, model-based, one-step acceptance condition; it does not establish laboratory or plant deployment, universal physical safety, global nonlinear stability, recursive feasibility at every step, or production readiness.\nEight-run results are descriptive means and standard deviations without inferential statistics. The new-setpoint comparison uses one continued-online-learning trajectory per case, and its practical neighborhood is a post-processing threshold rather than a controller rule or theorem."
+  },
+  {
+    "objectID": "research/stability-aware-rl.html#related-material",
+    "href": "research/stability-aware-rl.html#related-material",
+    "title": "Stability-Aware Reinforcement Learning",
+    "section": "Related material",
+    "text": "Related material\n\nPaper: Practical Stability Net Based Reinforcement Learning Control from Step-Test Data\nPublic repository\n\n← Back to research overview"
+  },
+  {
+    "objectID": "research/mpc-pretrained-rl.html#system-architecture",
+    "href": "research/mpc-pretrained-rl.html#system-architecture",
+    "title": "MPC-Pretrained Reinforcement Learning",
+    "section": "System architecture",
+    "text": "System architecture\n\n\n\n\n\nMPC supplies offline expert demonstrations that initialize a TD3 actor and twin critics. The pretrained policy then controls the process, stores executed transitions, and adapts online through offset-aware rewards and mixed replay."
+  },
+  {
+    "objectID": "research/mpc-pretrained-rl.html#contribution-and-implementation",
+    "href": "research/mpc-pretrained-rl.html#contribution-and-implementation",
+    "title": "MPC-Pretrained Reinforcement Learning",
+    "section": "Contribution and implementation",
+    "text": "Contribution and implementation\n\nAn offline MPC expert generated about three million one-step transitions; behavioral cloning trained the bounded TD3 actor, while twin critics were initialized from the same offline experience.\nTD3 observes the estimated process state, output target, and previous input, then directly generates bounded continuous commands for the polymer reactor or C2 splitter without runtime MPC control.\nOnline transfer uses replay warm-up, critic-only refinement, and joint actor-critic updates, followed by offset-aware reward shaping and a replay mixture of prioritized, recent, and uniform experience.\n\n\nImplementation: Python · PyTorch · Aspen Dynamics"
+  },
+  {
+    "objectID": "research/mpc-pretrained-rl.html#results-and-evaluation",
+    "href": "research/mpc-pretrained-rl.html#results-and-evaluation",
+    "title": "MPC-Pretrained Reinforcement Learning",
+    "section": "Results and evaluation",
+    "text": "Results and evaluation\n\n\nAcross five independent polymer-reactor simulation runs, RL2 achieved a lower mean final absolute steady-state error in all eight comparisons; at nominal SP(a), viscosity error decreased from 0.034 plus or minus 0.024 to 0.001 plus or minus 0.001 L/g.\n\n\nRL2 achieved a lower final absolute steady-state error in all 12 tabulated C2-splitter simulation comparisons; across the six ethane-composition cases, recomputed reductions ranged from 89.69% to 99.63%, with run count and uncertainty not stated in the source table.\n\n\nThe Aspen Dynamics loop required approximately 1 second per online control step, including learning operations, compared with a 10-minute control interval; the polymer study’s complete 200-episode online run required approximately 20 minutes.\n\n\n\n\n\n\n\nMean final absolute steady-state errors for RL1 and RL2 across five independent polymer-reactor runs. RL2 reduced the mean final error in every nominal and operation-change comparison; values show mean and standard deviation.\n\n\n\n\n\n\n\nRecomputed RL2 reductions in final absolute steady-state error relative to RL1 for the Aspen Dynamics C2 splitter. The source table does not report run count or uncertainty."
+  },
+  {
+    "objectID": "research/mpc-pretrained-rl.html#limitations-and-evidence-maturity",
+    "href": "research/mpc-pretrained-rl.html#limitations-and-evidence-maturity",
+    "title": "MPC-Pretrained Reinforcement Learning",
+    "section": "Limitations and evidence maturity",
+    "text": "Limitations and evidence maturity\n\nAll reported evaluations are simulation-based; the work does not demonstrate laboratory or plant deployment, and the C2 result table does not report a run count or uncertainty.\nThe reported simulations enforced actuator bounds only; policy pretraining is not a formal guarantee of stability, safety, or broader constraint satisfaction, and reward shaping and mixed replay were not separated in a complete ablation."
+  },
+  {
+    "objectID": "research/mpc-pretrained-rl.html#related-material",
+    "href": "research/mpc-pretrained-rl.html#related-material",
+    "title": "MPC-Pretrained Reinforcement Learning",
+    "section": "Related material",
+    "text": "Related material\n\nPaper: A Practical MPC-Pretrained Reinforcement Learning Framework for Complex Process Systems; DOI\nPublic repository\n\n← Back to research overview"
+  },
+  {
+    "objectID": "research/distillation-flooding.html#system-architecture",
+    "href": "research/distillation-flooding.html#system-architecture",
+    "title": "Distillation Flooding Detection and Control",
+    "section": "System architecture",
+    "text": "System architecture\n\n\n\n\n\nFifteen runtime fields feed a measurement-hybrid hydraulic estimator; reconstructed Fair and downcomer coordinates inform constrained MPC while Aspen labels remain isolated until post-run validation.\n\n\n\n\n\n\n\nThe reduced model represents 101 trays and 100 downcomers, anchored by sparse pressure and temperature measurements and supplemented by frozen empirical corrections."
+  },
+  {
+    "objectID": "research/distillation-flooding.html#contribution-and-implementation",
+    "href": "research/distillation-flooding.html#contribution-and-implementation",
+    "title": "Distillation Flooding Detection and Control",
+    "section": "Contribution and implementation",
+    "text": "Contribution and implementation\n\nA measurement firewall uses five tray-temperature anchors, top pressure, two section differential pressures, feed conditions, and manipulated inputs while keeping full simulator-only profiles and flooding labels out of the online estimator.\nThe reduced model reconstructs 101 tray inventories and 100 downcomer inventories and retains separate Fair entrainment and total-aerated downcomer utilization coordinates.\nA matched 16,000-step comparison evaluates soft hydraulic constraints around an offset-free MPC while preserving exact trajectory, solver, tracking, movement, and post-run validation records.\n\n\nImplementation: Python · Aspen Dynamics"
+  },
+  {
+    "objectID": "research/distillation-flooding.html#results-and-evaluation",
+    "href": "research/distillation-flooding.html#results-and-evaluation",
+    "title": "Distillation Flooding Detection and Control",
+    "section": "Results and evaluation",
+    "text": "Results and evaluation\n\n\nIn one matched simulation, hydraulic constraints reduced the aligned model Fair-limit exceedance area from 1.06597 to 0.01389 fraction-hours, a 98.70% reduction; neither Aspen arm crossed its recorded flooding threshold.\n\n\nAll 16,000 constrained decisions were accepted, 284 changed the nominal MPC action, and no controller fallback was recorded.\n\n\nAgainst post-run Aspen labels for the constrained run, adjusted clear-backup RMSE was 1.9467 mm across all downcomers and 0.9952 mm at the feed downcomer.\n\n\n\n\n\n\n\nPost-run Aspen comparison for the constrained 16,000-step cycle, including adjusted all-downcomer and feed-downcomer clear-backup RMSE.\n\n\n\n\n\n\n\nIn one matched slow feed-cycle simulation, hydraulic constraints reduced aligned model Fair-limit exceedance area by 98.70%; neither Aspen arm crossed its recorded flooding threshold."
+  },
+  {
+    "objectID": "research/distillation-flooding.html#limitations-and-evidence-maturity",
+    "href": "research/distillation-flooding.html#limitations-and-evidence-maturity",
+    "title": "Distillation Flooding Detection and Control",
+    "section": "Limitations and evidence maturity",
+    "text": "Limitations and evidence maturity\n\nThe evidence is one deterministic simulation comparison: it demonstrates successful management of the reduced model’s near-limit coordinate, not prevention of an actual Aspen or plant flooding event.\nThe downcomer constraint remained inactive, and documented model discrepancy plus process-model timing and observer issues limit broader controller conclusions."
+  },
+  {
+    "objectID": "research/distillation-flooding.html#related-material",
+    "href": "research/distillation-flooding.html#related-material",
+    "title": "Distillation Flooding Detection and Control",
+    "section": "Related material",
+    "text": "Related material\n\nPaper: Flooding Detection and Control with Simplified Hydraulics for Distillation Columns\n\n← Back to research overview"
+  },
+  {
+    "objectID": "publications.html#a-practical-mpc-pretrained-reinforcement-learning-framework-for-complex-process-systems",
+    "href": "publications.html#a-practical-mpc-pretrained-reinforcement-learning-framework-for-complex-process-systems",
+    "title": "Publications",
+    "section": "A Practical MPC-Pretrained Reinforcement Learning Framework for Complex Process Systems",
+    "text": "A Practical MPC-Pretrained Reinforcement Learning Framework for Complex Process Systems\nAmir Hossein Hamedi, Hesam Hassanpour, Ankur Kumar, Atharva Vijay Suryavanshi, Prashant Mhaskar\nIndustrial & Engineering Chemistry Research · DOI 10.1021/acs.iecr.6c00277"
+  },
+  {
+    "objectID": "publications.html#critic-based-supervisory-gating-for-multi-channel-reinforcement-learning-assisted-model-predictive-control",
+    "href": "publications.html#critic-based-supervisory-gating-for-multi-channel-reinforcement-learning-assisted-model-predictive-control",
+    "title": "Publications",
+    "section": "Critic-Based Supervisory Gating for Multi-Channel Reinforcement Learning-Assisted Model Predictive Control",
+    "text": "Critic-Based Supervisory Gating for Multi-Channel Reinforcement Learning-Assisted Model Predictive Control\nAmir Hossein Hamedi, Hesam Hassanpour, Ankur Kumar, Atharva Vijay Suryavanshi, Prashant Mhaskar\nComputers & Chemical Engineering"
+  },
+  {
+    "objectID": "publications.html#practical-stability-net-based-reinforcement-learning-control-from-step-test-data",
+    "href": "publications.html#practical-stability-net-based-reinforcement-learning-control-from-step-test-data",
+    "title": "Publications",
+    "section": "Practical Stability Net Based Reinforcement Learning Control from Step-Test Data",
+    "text": "Practical Stability Net Based Reinforcement Learning Control from Step-Test Data\nAmir Hossein Hamedi, Ankur Kumar, Atharva Vijay Suryavanshi, Prashant Mhaskar\nOptimal Control Applications and Methods"
+  },
+  {
+    "objectID": "publications.html#a-hybrid-clustering-approach-integrating-first-principles-knowledge-with-data-for-fault-detection-in-hvac-systems",
+    "href": "publications.html#a-hybrid-clustering-approach-integrating-first-principles-knowledge-with-data-for-fault-detection-in-hvac-systems",
+    "title": "Publications",
+    "section": "A Hybrid Clustering Approach Integrating First-Principles Knowledge with Data for Fault Detection in HVAC Systems",
+    "text": "A Hybrid Clustering Approach Integrating First-Principles Knowledge with Data for Fault Detection in HVAC Systems\nHesam Hassanpour, Amir Hossein Hamedi, Prashant Mhaskar, John M. House, Timothy I. Salsbury\nComputers & Chemical Engineering · DOI 10.1016/j.compchemeng.2024.108717"
+  },
+  {
+    "objectID": "publications.html#integrating-artificial-immune-genetic-algorithm-and-metaheuristic-ant-colony-optimizer-with-two-dose-vaccination-and-modeling-for-residual-fluid-catalytic-cracking-process",
+    "href": "publications.html#integrating-artificial-immune-genetic-algorithm-and-metaheuristic-ant-colony-optimizer-with-two-dose-vaccination-and-modeling-for-residual-fluid-catalytic-cracking-process",
+    "title": "Publications",
+    "section": "Integrating Artificial Immune Genetic Algorithm and Metaheuristic Ant Colony Optimizer with Two-Dose Vaccination and Modeling for Residual Fluid Catalytic Cracking Process",
+    "text": "Integrating Artificial Immune Genetic Algorithm and Metaheuristic Ant Colony Optimizer with Two-Dose Vaccination and Modeling for Residual Fluid Catalytic Cracking Process\nAmir Hossein Hamedi, Hossein Abolghasemi, Saeid Shokri, Hamid Jafari Nia, Farshad Moayedi\nArabian Journal for Science and Engineering · DOI 10.1007/s13369-023-07882-x"
+  },
+  {
+    "objectID": "publications.html#flooding-detection-and-control-with-simplified-hydraulics-for-distillation-columns",
+    "href": "publications.html#flooding-detection-and-control-with-simplified-hydraulics-for-distillation-columns",
+    "title": "Publications",
+    "section": "Flooding Detection and Control with Simplified Hydraulics for Distillation Columns",
+    "text": "Flooding Detection and Control with Simplified Hydraulics for Distillation Columns\nAmir Hossein Hamedi, Vladimir Mahalec, Prashant Mhaskar\nComputers & Chemical Engineering"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Amir Hamedi",
+    "section": "Education",
+    "text": "Education\n\n\n\n  \n    \n      2022 - Expected Jan 2027\n      PhD Process Systems Engineering\n      McMaster University\n    \n    \n  \n  \n  \n    ControlReinforcement LearningScientific Machine Learning\n    GPA 4.0 / 4.0\n  \n  \n\n\n\n  \n    \n      2018 - 2021\n      MSc Process Design Engineering\n      University of Tehran\n    \n    \n  \n  \n  \n    Heuristic OptimizationMachine Learning\n    \n  \n  \n\n\n\n  \n    \n      2012 - 2017\n      BSc Chemical Engineering\n      Iran University of Science and Technology\n    \n    \n  \n  \n  \n    Simulation"
+  },
+  {
+    "objectID": "index.html#selected-work",
+    "href": "index.html#selected-work",
+    "title": "Amir Hamedi",
+    "section": "Selected work",
+    "text": "Selected work\n\n6 case studies spanning reinforcement learning, scientific machine learning, control, laboratory experimentation, and data engineering.\n\n\n\n  \n    01 / RESEARCH\n    MPC-Pretrained Reinforcement Learning\n    \n    \n      \n    \n    \n    Developed an RL-centered workflow that initializes Twin Delayed Deep Deterministic Policy Gradient (TD3) from model predictive control demonstrations, then gives the neural policy direct control and online adaptation across polymer-reactor and Aspen Dynamics C2-splitter simulations.\n    Collaboration: Linde\n    Open case study →\n  \n\n  \n    02 / RESEARCH\n    Multi-Channel RL-Assisted MPC\n    \n    \n      \n    \n    \n    Designed a four-channel RL-assisted MPC architecture in which DQN and TD3 agents propose bounded controller adjustments and channel-specific critic gates decide whether to use each learned proposal or a conservative supervisor action.\n    Collaboration: Linde\n    Open case study →\n  \n\n  \n    03 / RESEARCH\n    Stability-Aware Reinforcement Learning\n    \n    \n      \n    \n    \n    Developed an RL-first control architecture in which TD3 proposes continuous coolant and monomer flow commands and a Lyapunov-guided GART-LMPC layer evaluates each move before it is applied to a simulated polymerization reactor.\n    Collaboration: Linde\n    Open case study →\n  \n\n  \n    04 / RESEARCH\n    Reinforcement-Learning pH Control for BioSMB\n    \n    \n      \n    \n    \n    A simulation-pretrained TD3 policy generated bounded acid/base flow decisions during a 4.55-hour BioSMB laboratory run across a changing pH sequence.\n    Collaboration: Sartorius\n    Open case study →\n  \n\n  \n    05 / RESEARCH\n    Distillation Flooding Detection and Control\n    \n    \n      \n    \n    \n    A measurement-hybrid 201-state hydraulic estimator uses 15 runtime fields to supply interpretable Fair and downcomer coordinates to constrained model predictive control in an Aspen Dynamics simulation.\n    Collaboration: Imperial Oil\n    Open case study →\n  \n\n  \n    06 / SOFTWARE & DATA\n    Finance Assistance\n    \n    \n      \n    \n    \n    Finance Assistance is a local-first platform that converts heterogeneous financial records into traceable accounting and read-only analytics, with guarded machine-learning categorization and a planned path toward human-reviewed AI portfolio decision support.\n    \n    Open case study →"
+  },
+  {
+    "objectID": "index.html#technical-expertise",
+    "href": "index.html#technical-expertise",
+    "title": "Amir Hamedi",
+    "section": "Technical expertise",
+    "text": "Technical expertise\n\n\nReinforcement Learning\nValue-based, actor-critic, and policy-optimization methods for discrete and continuous control, including DQN, TD3, TD7, and SAC; behavioral cloning, imitation learning, advanced experience replay, offline-to-online learning, and safe-RL action screening.\n\n\nMachine Learning\nDeep-learning architectures spanning convolutional, recurrent, attention-based, and sequence-modeling methods; time-series modeling, PINNs, generative models, PCA/PLS, autoencoders, clustering, classical machine learning, and LLM applications.\n\n\nControl & Optimization\nLinear and nonlinear control, model predictive control, linear and nonlinear optimization, and metaheuristic optimization for nonlinear process systems.\n\n\nSoftware & Platforms\nPython, PyTorch, MATLAB/Simulink, Aspen Plus/Dynamics, Pyomo/IPOPT, SQL, Power BI, Tableau, Minitab, Git, and LaTeX; laboratory automation and hardware integration."
+  },
+  {
+    "objectID": "index.html#current-trajectory",
+    "href": "index.html#current-trajectory",
+    "title": "Amir Hamedi",
+    "section": "Current trajectory",
+    "text": "Current trajectory\n\n\n  \n    \n      Graduate Researcher and PhD Candidate\n      2022 - Present\n    \n    McMaster University\n    Research in deep reinforcement learning, safe reinforcement learning, scientific machine learning, and control for nonlinear process systems across simulation, Aspen Dynamics, and laboratory experimentation.\n  \n\n  \n    \n      Teaching Assistant\n      2023 - 2026\n    \n    McMaster University\n    Supported Process Control, Transport Phenomena, and Reactor Design through tutorials, grading, student consultation, and examination support."
+  },
+  {
+    "objectID": "index.html#selected-publications",
+    "href": "index.html#selected-publications",
+    "title": "Amir Hamedi",
+    "section": "Selected publications",
+    "text": "Selected publications\n\n2026\n\nA Practical MPC-Pretrained Reinforcement Learning Framework for Complex Process Systems\nAmir Hossein Hamedi, Hesam Hassanpour, Ankur Kumar, Atharva Vijay Suryavanshi, Prashant Mhaskar\nIndustrial & Engineering Chemistry Research\n\n\n\n2026\n\nCritic-Based Supervisory Gating for Multi-Channel Reinforcement Learning-Assisted Model Predictive Control\nAmir Hossein Hamedi, Hesam Hassanpour, Ankur Kumar, Atharva Vijay Suryavanshi, Prashant Mhaskar\nComputers & Chemical Engineering\n\n\n\n2026\n\nPractical Stability Net Based Reinforcement Learning Control from Step-Test Data\nAmir Hossein Hamedi, Ankur Kumar, Atharva Vijay Suryavanshi, Prashant Mhaskar\nOptimal Control Applications and Methods\n\n\nView all publications →"
+  },
+  {
+    "objectID": "index.html#lets-connect",
+    "href": "index.html#lets-connect",
+    "title": "Amir Hamedi",
+    "section": "Let’s connect",
+    "text": "Let’s connect\nI welcome conversations about intelligent process systems, control, machine learning, reinforcement learning, and applied research collaborations.\n\nEmail Amir Hamedi LinkedIn GitHub Google Scholar"
+  },
+  {
+    "objectID": "cv.html#amir-hamedi",
+    "href": "cv.html#amir-hamedi",
+    "title": "CV",
+    "section": "Amir Hamedi",
+    "text": "Amir Hamedi\nMy experience, technical expertise, and selected research in one document.\n\nDownload CV View PDF"
+  },
+  {
+    "objectID": "cv.html#professional-overview",
+    "href": "cv.html#professional-overview",
+    "title": "CV",
+    "section": "Professional overview",
+    "text": "Professional overview\nI am a machine-learning and process-systems engineer working across reinforcement learning, scientific machine learning, and control. I develop data-driven methods for complex process systems in simulation and laboratory settings."
+  },
+  {
+    "objectID": "cv.html#technical-expertise",
+    "href": "cv.html#technical-expertise",
+    "title": "CV",
+    "section": "Technical expertise",
+    "text": "Technical expertise\n\n\nReinforcement Learning\nValue-based, actor-critic, and policy-optimization methods for discrete and continuous control, including DQN, TD3, TD7, and SAC; behavioral cloning, imitation learning, advanced experience replay, offline-to-online learning, and safe-RL action screening.\n\n\nMachine Learning\nDeep-learning architectures spanning convolutional, recurrent, attention-based, and sequence-modeling methods; time-series modeling, PINNs, generative models, PCA/PLS, autoencoders, clustering, classical machine learning, and LLM applications.\n\n\nControl & Optimization\nLinear and nonlinear control, model predictive control, linear and nonlinear optimization, and metaheuristic optimization for nonlinear process systems.\n\n\nSoftware & Platforms\nPython, PyTorch, MATLAB/Simulink, Aspen Plus/Dynamics, Pyomo/IPOPT, SQL, Power BI, Tableau, Minitab, Git, and LaTeX; laboratory automation and hardware integration."
+  },
+  {
+    "objectID": "cv.html#experience",
+    "href": "cv.html#experience",
+    "title": "CV",
+    "section": "Experience",
+    "text": "Experience\n\n\n  \n    \n      Graduate Researcher and PhD Candidate\n      2022 - Present\n    \n    McMaster University\n    Research in deep reinforcement learning, safe reinforcement learning, scientific machine learning, and control for nonlinear process systems across simulation, Aspen Dynamics, and laboratory experimentation.\n  \n\n  \n    \n      Teaching Assistant\n      2023 - 2026\n    \n    McMaster University\n    Supported Process Control, Transport Phenomena, and Reactor Design through tutorials, grading, student consultation, and examination support."
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "CV",
+    "section": "Education",
+    "text": "Education\n\n\n  \n    \n      PhD Process Systems Engineering\n      2022 - Expected Jan 2027\n    \n    McMaster University\n    Thesis: Data-Driven Control and Fault Detection for Complex Process Systems\n  \n\n  \n    \n      MSc Process Design Engineering\n      2018 - 2021\n    \n    University of Tehran\n    Thesis: Data-Driven Modeling and Metaheuristic Optimization of a Residual Fluid Catalytic Cracking Process\n  \n\n  \n    \n      BSc Chemical Engineering\n      2012 - 2017\n    \n    Iran University of Science and Technology\n    Thesis: Design of a municipal-waste leachate treatment plant"
+  },
+  {
+    "objectID": "cv.html#explore-the-full-portfolio",
+    "href": "cv.html#explore-the-full-portfolio",
+    "title": "CV",
+    "section": "Explore the full portfolio",
+    "text": "Explore the full portfolio\nResearch & projects Publications Leadership, service & recognition"
+  },
+  {
+    "objectID": "contact.html#amir-hamedi",
+    "href": "contact.html#amir-hamedi",
+    "title": "Contact",
+    "section": "Amir Hamedi",
+    "text": "Amir Hamedi\nMachine Learning Engineer | Reinforcement Learning Researcher | Process Systems & Control Engineer\nOntario, Canada\nhamedia@mcmaster.ca\n\nLinkedIn GitHub Google Scholar"
+  },
+  {
+    "objectID": "experience.html#research-teaching-experience",
+    "href": "experience.html#research-teaching-experience",
+    "title": "Experience & Leadership",
+    "section": "Research & teaching experience",
+    "text": "Research & teaching experience\n\n\n  \n    \n      Graduate Researcher and PhD Candidate\n      2022 - Present\n    \n    McMaster University\n    Research in deep reinforcement learning, safe reinforcement learning, scientific machine learning, and control for nonlinear process systems across simulation, Aspen Dynamics, and laboratory experimentation.\n  \n\n  \n    \n      Teaching Assistant\n      2023 - 2026\n    \n    McMaster University\n    Supported Process Control, Transport Phenomena, and Reactor Design through tutorials, grading, student consultation, and examination support."
+  },
+  {
+    "objectID": "experience.html#leadership-service-recognition",
+    "href": "experience.html#leadership-service-recognition",
+    "title": "Experience & Leadership",
+    "section": "Leadership, service & recognition",
+    "text": "Leadership, service & recognition\n\n\nSERVICE\n\nEngineering Council Member\nMcMaster Engineering Graduate Society\n2025 - Present\nRepresent Chemical Engineering graduate students, support communication between students and faculty, and contribute to reviewing graduate-student submissions for EGS awards.\n\n\n\nMENTORING\n\nSummer Student Mentoring and Supervision\n\nMentored and supervised summer students in research activities over four years.\n\n\n\nRECOGNITION\n\n2024 CSChE Best Poster Presentation\nCSChE Student Poster Presentation Competition\n2024\nPresented “A Study on Distillation Columns Investigating Generative Adversarial Networks for Fault Detection and Diagnosis in Chemical Processes.”"
+  },
+  {
+    "objectID": "experience.html#education",
+    "href": "experience.html#education",
+    "title": "Experience & Leadership",
+    "section": "Education",
+    "text": "Education\n\n\n  \n    \n      PhD Process Systems Engineering\n      2022 - Expected Jan 2027\n    \n    McMaster University\n    Thesis: Data-Driven Control and Fault Detection for Complex Process Systems\n  \n\n  \n    \n      MSc Process Design Engineering\n      2018 - 2021\n    \n    University of Tehran\n    Thesis: Data-Driven Modeling and Metaheuristic Optimization of a Residual Fluid Catalytic Cracking Process\n  \n\n  \n    \n      BSc Chemical Engineering\n      2012 - 2017\n    \n    Iran University of Science and Technology\n    Thesis: Design of a municipal-waste leachate treatment plant"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Research & Projects",
+    "section": "",
+    "text": "Research & Projects\nMy work combines reinforcement learning, machine learning, process systems engineering, control, and applied software. Explore the systems, methods, and results behind each project.\n\n\n\n  \n    01 / RESEARCH\n    MPC-Pretrained Reinforcement Learning\n    \n    \n      \n    \n    \n    Developed an RL-centered workflow that initializes Twin Delayed Deep Deterministic Policy Gradient (TD3) from model predictive control demonstrations, then gives the neural policy direct control and online adaptation across polymer-reactor and Aspen Dynamics C2-splitter simulations.\n    Collaboration: Linde\n    Open case study →\n  \n\n  \n    02 / RESEARCH\n    Multi-Channel RL-Assisted MPC\n    \n    \n      \n    \n    \n    Designed a four-channel RL-assisted MPC architecture in which DQN and TD3 agents propose bounded controller adjustments and channel-specific critic gates decide whether to use each learned proposal or a conservative supervisor action.\n    Collaboration: Linde\n    Open case study →\n  \n\n  \n    03 / RESEARCH\n    Stability-Aware Reinforcement Learning\n    \n    \n      \n    \n    \n    Developed an RL-first control architecture in which TD3 proposes continuous coolant and monomer flow commands and a Lyapunov-guided GART-LMPC layer evaluates each move before it is applied to a simulated polymerization reactor.\n    Collaboration: Linde\n    Open case study →\n  \n\n  \n    04 / RESEARCH\n    Reinforcement-Learning pH Control for BioSMB\n    \n    \n      \n    \n    \n    A simulation-pretrained TD3 policy generated bounded acid/base flow decisions during a 4.55-hour BioSMB laboratory run across a changing pH sequence.\n    Collaboration: Sartorius\n    Open case study →\n  \n\n  \n    05 / RESEARCH\n    Distillation Flooding Detection and Control\n    \n    \n      \n    \n    \n    A measurement-hybrid 201-state hydraulic estimator uses 15 runtime fields to supply interpretable Fair and downcomer coordinates to constrained model predictive control in an Aspen Dynamics simulation.\n    Collaboration: Imperial Oil\n    Open case study →\n  \n\n  \n    06 / SOFTWARE & DATA\n    Finance Assistance\n    \n    \n      \n    \n    \n    Finance Assistance is a local-first platform that converts heterogeneous financial records into traceable accounting and read-only analytics, with guarded machine-learning categorization and a planned path toward human-reviewed AI portfolio decision support.\n    \n    Open case study →"
+  },
+  {
+    "objectID": "research/biosmb-ph-control.html#system-architecture",
+    "href": "research/biosmb-ph-control.html#system-architecture",
+    "title": "Reinforcement-Learning pH Control for BioSMB",
+    "section": "System architecture",
+    "text": "System architecture\n\n\n\n\n\nA reliable outlet pH measurement and target form the TD3 state; the pretrained actor produces two normalized decisions that a chemistry-aware mapper converts into bounded acid and acetate flow commands.\n\n\n\n\n\n\n\nTD3 pretraining, actor export, demonstrated laboratory inference, and the later implemented-only online-adaptation extension remain separate evidence stages."
+  },
+  {
+    "objectID": "research/biosmb-ph-control.html#contribution-and-implementation",
+    "href": "research/biosmb-ph-control.html#contribution-and-implementation",
+    "title": "Reinforcement-Learning pH Control for BioSMB",
+    "section": "Contribution and implementation",
+    "text": "Contribution and implementation\n\nThe TD3 actor was pretrained for 500,000 steps in an ideal chemistry simulation and exported with a fixed five-state, two-action deployment contract before laboratory application.\nA ratio-first bounded action mapper converts the TD3 policy outputs into feasible acid and acetate flow commands using the measured outlet pH, target, error, and previous actions.\nLaboratory analysis preserves the full transient and settled-block views; the later replay-based online-adaptation path is implemented software but is not demonstrated by this stored run.\n\n\nImplementation: Python · PyTorch"
+  },
+  {
+    "objectID": "research/biosmb-ph-control.html#results-and-evaluation",
+    "href": "research/biosmb-ph-control.html#results-and-evaluation",
+    "title": "Reinforcement-Learning pH Control for BioSMB",
+    "section": "Results and evaluation",
+    "text": "Results and evaluation\n\n\nThe stored hardware-connected experiment ran for 4.5517 hours and contains 14,426 valid outlet-pH measurements and 236 controller-action changes.\n\n\nWith targets reconstructed from the supplied schedule, the transient-inclusive raw MAE was 0.02376 pH and the mean absolute error of the eight final-five-minute block means was 0.0088 pH.\n\n\nAs a run-level diagnostic rather than an inline-flow measurement, one-minute reservoir-mass-derived and commanded flows had correlations of 0.99846 for acid and 0.99932 for sodium acetate.\n\n\n\n\n\n\n\nFinal-five-minute measured pH means follow the reconstructed rising-and-falling target schedule across eight blocks; mean absolute block-mean error is 0.0088 pH.\n\n\n\n\n\n\n\nStored-run operating-direction comparison for startup, upward, and downward target changes; this is not a formal uncertainty study."
+  },
+  {
+    "objectID": "research/biosmb-ph-control.html#limitations-and-evidence-maturity",
+    "href": "research/biosmb-ph-control.html#limitations-and-evidence-maturity",
+    "title": "Reinforcement-Learning pH Control for BioSMB",
+    "section": "Limitations and evidence maturity",
+    "text": "Limitations and evidence maturity\n\nThis is one stored laboratory run; the active target and exact policy identity were not embedded in the CSV, so target-dependent metrics are reconstructed rather than directly logged.\nThe run does not demonstrate the later online-gradient adaptation path, formal robustness or safety guarantees, production deployment, or same-protocol superiority over an established controller."
+  },
+  {
+    "objectID": "research/biosmb-ph-control.html#related-material",
+    "href": "research/biosmb-ph-control.html#related-material",
+    "title": "Reinforcement-Learning pH Control for BioSMB",
+    "section": "Related material",
+    "text": "Related material\n← Back to research overview"
+  },
+  {
+    "objectID": "research/finance-assistance.html#system-architecture",
+    "href": "research/finance-assistance.html#system-architecture",
+    "title": "Finance Assistance",
+    "section": "System architecture",
+    "text": "System architecture\n\n\n\n\n\nFinance Assistance separates read-only acquisition, encrypted evidence, exact canonical accounting, deterministic interpretation, operational state, and local presentation; future AI decision support is marked as planned.\n\n\n\n\n\n\n\nCheckpointed evidence-first workflow from read-only acquisition to dashboard validation, with guarded model output treated as evidence rather than authority."
+  },
+  {
+    "objectID": "research/finance-assistance.html#contribution-and-implementation",
+    "href": "research/finance-assistance.html#contribution-and-implementation",
+    "title": "Finance Assistance",
+    "section": "Contribution and implementation",
+    "text": "Contribution and implementation\n\nProvider-independent contracts normalize accounts, transactions, balances, and positions while retaining exact values, source lineage, and immutable evidence.\nA rebuildable balanced ledger and deterministic reconciliation preserve source history while separating accounting state, owner decisions, and operational health.\nRead-only typed queries power a six-section local dashboard with bounded filters, exact serialization, data-quality indicators, and review surfaces.\nThe current machine-learning component is deliberately limited to guarded categorization; privacy filters, corroboration gates, deterministic precedence, and owner review keep model suggestions outside accounting authority.\n\n\nImplementation: Python · SQLAlchemy · SQLite · AES-256-GCM"
+  },
+  {
+    "objectID": "research/finance-assistance.html#results-and-evaluation",
+    "href": "research/finance-assistance.html#results-and-evaluation",
+    "title": "Finance Assistance",
+    "section": "Results and evaluation",
+    "text": "Results and evaluation\n\n\nA checked-in synthetic regression report records 229 passing tests; the handoff did not rerun the suite.\n\n\nA 14-case synthetic model evaluation recorded 41 of 42 exact decisions, handled five of six ambiguities, and exposed one overconfident error.\n\n\nA checked-in recovery report records an encrypted backup and disposable restore drill across five local stores."
+  },
+  {
+    "objectID": "research/finance-assistance.html#interface",
+    "href": "research/finance-assistance.html#interface",
+    "title": "Finance Assistance",
+    "section": "Interface",
+    "text": "Interface\n\n\n\n\n\nOriginal synthetic representation of the six-section local dashboard; every account label and financial value is fictional."
+  },
+  {
+    "objectID": "research/finance-assistance.html#future-direction",
+    "href": "research/finance-assistance.html#future-direction",
+    "title": "Finance Assistance",
+    "section": "Future direction",
+    "text": "Future direction\nThe roadmap adds explainable recurring analysis, forecasting, anomaly signals, investment accounting, and evidence-cited human-reviewed portfolio decision support after the data, recovery, and review gates mature.\n\n\n\n\n\nImplemented data and guarded-classification foundations lead to planned read-only intelligence and human-reviewed portfolio decision support."
+  },
+  {
+    "objectID": "research/finance-assistance.html#limitations-and-evidence-maturity",
+    "href": "research/finance-assistance.html#limitations-and-evidence-maturity",
+    "title": "Finance Assistance",
+    "section": "Limitations and evidence maturity",
+    "text": "Limitations and evidence maturity\n\nThe dashboard and guarded categorization workflow are local prototypes; live acquisition remains provider-dependent, and no current connection, synchronization, coverage, or provider-health claim is public.\nThe AI-assisted portfolio manager is a planned, human-reviewed decision-support direction. Autonomous trading, money movement, financial advice, production-readiness, and security-certification claims are outside the demonstrated scope."
+  },
+  {
+    "objectID": "research/finance-assistance.html#related-material",
+    "href": "research/finance-assistance.html#related-material",
+    "title": "Finance Assistance",
+    "section": "Related material",
+    "text": "Related material\n← Back to research overview"
+  },
+  {
+    "objectID": "research/multi-channel-rl-mpc.html#system-architecture",
+    "href": "research/multi-channel-rl-mpc.html#system-architecture",
+    "title": "Multi-Channel RL-Assisted MPC",
+    "section": "System architecture",
+    "text": "System architecture\n\n\n\n\n\nFour specialized RL assistants propose bounded changes around an MPC calculation; channel-specific critic gates can retain a conservative supervisor action."
+  },
+  {
+    "objectID": "research/multi-channel-rl-mpc.html#contribution-and-implementation",
+    "href": "research/multi-channel-rl-mpc.html#contribution-and-implementation",
+    "title": "Multi-Channel RL-Assisted MPC",
+    "section": "Contribution and implementation",
+    "text": "Contribution and implementation\n\nThe horizon channel uses DQN for discrete prediction/control-horizon selection, while TD3 agents continuously adjust objective weights, correct the dynamic matrix, and propose a constrained residual-input correction around the MPC backbone.\nEach channel has its own critic-based selector. A learned proposal must exceed its supervisor alternative by a configured advantage margin; ties, non-finite scores, and policies that are not ready default to the supervisor.\nSimulation training uses the executed actions and a common control reward with mixed prioritized, recent, and uniform replay. Learned proposals are released only after data collection and critic-learning phases, and the final evaluation episode disables exploration and network updates.\n\n\nImplementation: Python · PyTorch"
+  },
+  {
+    "objectID": "research/multi-channel-rl-mpc.html#results-and-evaluation",
+    "href": "research/multi-channel-rl-mpc.html#results-and-evaluation",
+    "title": "Multi-Channel RL-Assisted MPC",
+    "section": "Results and evaluation",
+    "text": "Results and evaluation\n\n\nPolymerization Scenario 2, one saved deterministic evaluation trajectory: combined gated assistance reduced viscosity RMSE from 0.2396 to 0.0957 L/g and temperature RMSE from 1.160 to 0.848 K relative to offset-free MPC. Band-normalized error fell from 11.415 to 4.561, while normalized input movement increased from 1.683% to 4.675%.\n\n\nDistillation Scenario 2, one saved deterministic evaluation trajectory: combined gated assistance reduced composition RMSE from 0.00427 to 0.00320 and temperature RMSE from 0.4022 to 0.1252 degrees C relative to offset-free MPC. Joint acceptable-band occupancy increased from 76.25% to 91.75%, while normalized input movement increased from 0.418% to 0.625%.\n\n\nDistillation Scenario 1 descriptive saved-run ensembles: mean worst post-handoff reward for combined assistance was -14.14 +/- 14.06 with gating (n=6) versus -521.30 +/- 42.93 without gating (n=4). These values are descriptive means and one sample standard deviation, not confidence intervals or a significance result.\n\n\n\n\n\n\n\nIn the saved changed-condition polymer simulation, combined gated assistance improved both tracking outputs, with increased input movement.\n\n\n\n\n\n\n\nAcross the saved distillation runs, critic gating limited the worst reward drops after learned policies were released."
+  },
+  {
+    "objectID": "research/multi-channel-rl-mpc.html#limitations-and-evidence-maturity",
+    "href": "research/multi-channel-rl-mpc.html#limitations-and-evidence-maturity",
+    "title": "Multi-Channel RL-Assisted MPC",
+    "section": "Limitations and evidence maturity",
+    "text": "Limitations and evidence maturity\n\nThe evidence is limited to nonlinear polymerization and Aspen Dynamics distillation simulations; it does not establish laboratory, pilot-plant, or production deployment, formal closed-loop stability, recursive feasibility, or physical safety.\nScenario 2 uses one saved trajectory per configuration. Repeated Scenario 1 studies have unequal run counts and incomplete seed and commit provenance, and no leave-one-channel-out combined ablation establishes the causal contribution of each assistance channel."
+  },
+  {
+    "objectID": "research/multi-channel-rl-mpc.html#related-material",
+    "href": "research/multi-channel-rl-mpc.html#related-material",
+    "title": "Multi-Channel RL-Assisted MPC",
+    "section": "Related material",
+    "text": "Related material\n\nPaper: Critic-Based Supervisory Gating for Multi-Channel Reinforcement Learning-Assisted Model Predictive Control\nPublic repository\n\n← Back to research overview"
+  }
+]

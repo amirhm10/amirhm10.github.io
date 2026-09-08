@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="770" viewBox="0 0 1200 770" role="img" aria-labelledby="title desc">
+  <title id="title">New-setpoint online-adaptation result</title>
+  <desc id="desc">A website-specific summary shows final-cycle average output RMSE for trained TD3 with the gate, the same trained TD3 without the gate, and deterministic GART-LMPC. Two companion panels compare outside-setpoint-neighborhood diagnostic failures for the ungated trajectory with actual gate interventions for the gated trajectory over the first 100 cycles and final cycle.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0B1F33" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#31536F"/>
+    </marker>
+    <style>
+      .bg { fill:#F7FAFC; }
+      .title { font:700 32px Arial,sans-serif; fill:#102A43; }
+      .subtitle { font:400 16px Arial,sans-serif; fill:#486581; }
+      .h { font:700 18px Arial,sans-serif; fill:#102A43; }
+      .label { font:600 14px Arial,sans-serif; fill:#243B53; }
+      .small { font:400 12px Arial,sans-serif; fill:#627D98; }
+      .value { font:700 14px Arial,sans-serif; fill:#102A43; }
+    </style>
+  </defs>
+  <rect class="bg" width="100%" height="100%" rx="24"/>
+  <text class="title" x="54" y="58">New-setpoint online-adaptation test</text>
+  <text class="subtitle" x="54" y="88">One saved TD3 run per case; the same starting policy is continued online with and without the gate.</text>
+  <rect x="48" y="124" width="530" height="544" rx="18" fill="#FFFFFF" stroke="#BCCCDC" stroke-width="2"/>
+  <rect x="608" y="124" width="544" height="258" rx="18" fill="#FFFFFF" stroke="#BCCCDC" stroke-width="2"/>
+  <rect x="608" y="410" width="544" height="258" rx="18" fill="#FFFFFF" stroke="#BCCCDC" stroke-width="2"/>
+  <text class="h" x="74" y="160">Final-cycle tracking</text>
+  <text class="small" x="74" y="184">Average of viscosity and temperature RMSE values</text>
+  <text class="label" x="74" y="230">Trained TD3 + gate</text>
+  <rect x="74" y="244" width="360" height="22" rx="11" fill="#E6EDF3"/>
+  <rect x="74" y="244" width="156.5" height="22" rx="11" fill="#178A73"/>
+  <text class="value" x="450" y="261">0.304</text>
+  <text class="label" x="74" y="335">Trained TD3, no gate</text>
+  <rect x="74" y="349" width="360" height="22" rx="11" fill="#E6EDF3"/>
+  <rect x="74" y="349" width="175.7" height="22" rx="11" fill="#D46B4C"/>
+  <text class="value" x="450" y="366">0.342</text>
+  <text class="label" x="74" y="440">GART-LMPC reference</text>
+  <rect x="74" y="454" width="360" height="22" rx="11" fill="#E6EDF3"/>
+  <rect x="74" y="454" width="340.2" height="22" rx="11" fill="#5D7890"/>
+  <text class="value" x="450" y="471">0.661</text>
+  <text class="value" x="74" y="584">10.9% lower than the same TD3 policy without the gate</text>
+  <text class="value" x="74" y="611">54.0% lower than deterministic GART-LMPC</text>
+  <text class="small" x="74" y="642">Composite RMSE mixes L/g and K; per-output RMSE values remain in the CSV.</text>
+  <text class="h" x="634" y="162">Away-from-setpoint events: first 100 cycles</text>
+  <text class="small" x="634" y="188">Rate across all samples in the reporting window</text>
+  <text class="label" x="634" y="236">No gate: diagnostic failures</text>
+  <rect x="634" y="250" width="330" height="20" rx="10" fill="#E6EDF3"/>
+  <rect x="634" y="250" width="199.4" height="20" rx="10" fill="#D46B4C"/>
+  <text class="value" x="980" y="266">12.085%</text>
+  <text class="label" x="634" y="309">Gate: actual interventions</text>
+  <rect x="634" y="323" width="330" height="20" rx="10" fill="#E6EDF3"/>
+  <rect x="634" y="323" width="36.0" height="20" rx="10" fill="#178A73"/>
+  <text class="value" x="980" y="339">2.184%</text>
+  <text class="value" x="634" y="362">81.9% lower event rate in this trajectory</text>
+  <text class="h" x="634" y="448">Away-from-setpoint events: final cycle</text>
+  <text class="small" x="634" y="474">Rate across all samples in the reporting window</text>
+  <text class="label" x="634" y="522">No gate: diagnostic failures</text>
+  <rect x="634" y="536" width="330" height="20" rx="10" fill="#E6EDF3"/>
+  <rect x="634" y="536" width="309.4" height="20" rx="10" fill="#D46B4C"/>
+  <text class="value" x="980" y="552">18.750%</text>
+  <text class="label" x="634" y="595">Gate: actual interventions</text>
+  <rect x="634" y="609" width="330" height="20" rx="10" fill="#E6EDF3"/>
+  <rect x="634" y="609" width="2.1" height="20" rx="10" fill="#178A73"/>
+  <text class="value" x="980" y="625">0.125%</text>
+  <text class="value" x="634" y="648">99.3% lower event rate in this trajectory</text>
+  <text class="small" x="54" y="716">The practical neighborhood is |eta-eta_sp| &lt;= 0.05 L/g and |T-T_sp| &lt;= 0.25 K; it is a post-processing filter, not a controller rule.</text>
+  <text class="small" x="54" y="740">This is a single-run online-adaptation result, not a frozen-policy generalization or statistical robustness result.</text>
+</svg>

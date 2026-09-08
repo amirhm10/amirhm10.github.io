@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img" aria-labelledby="title desc">
+  <title id="title">C2 splitter final steady-state error reductions</title>
+  <desc id="desc">Two panels show the percentage reduction in final absolute steady-state error for RL2 versus RL1 across nominal, feed-fluctuation, and gradual-ramp scenarios. Six ethane-composition comparisons range from 89.69 to 99.63 percent. Six tray-temperature comparisons range from 35.78 to 97.77 percent. The source does not state the number of runs for this table.</desc>
+  <rect width="1600" height="1160" fill="#F7F9FC"/>
+  <text x="70" y="64" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="38" font-weight="700" fill="#12304A">C2 splitter: RL2 reduced final error across all 12 comparisons</text>
+  <text x="70" y="103" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" fill="#4B5E70">Recomputed from exact tabulated RL1 and RL2 values | final evaluation episode | lower final error is better</text>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="55" y="145" width="725" height="900" rx="24" fill="#FFFFFF" stroke="#DCE4EE" stroke-width="2"/>
+    <text x="90" y="196" font-size="27" font-weight="700" fill="#12304A">Tray 24 ethane mole fraction</text>
+    <text x="90" y="226" font-size="17" fill="#687A8D">Final absolute error: RL1 to RL2</text>
+    <g stroke="#E2E8F0"><line x1="210" y1="260" x2="210" y2="960"/><line x1="330" y1="260" x2="330" y2="960"/><line x1="450" y1="260" x2="450" y2="960"/><line x1="570" y1="260" x2="570" y2="960"/><line x1="690" y1="260" x2="690" y2="960"/></g>
+    <g font-size="14" fill="#687A8D" text-anchor="middle"><text x="210" y="985">0%</text><text x="330" y="985">25%</text><text x="450" y="985">50%</text><text x="570" y="985">75%</text><text x="690" y="985">100%</text></g>
+    <g fill="#24384B">
+      <text x="90" y="303" font-size="18" font-weight="600">Nominal - SP1</text><text x="90" y="326" font-size="14" fill="#687A8D">0.00335503 to 0.00002817</text><rect x="210" y="340" width="475.97" height="26" rx="7" fill="#0E8A73"/><text x="674" y="360" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">99.16%</text>
+      <text x="90" y="418" font-size="18" font-weight="600">Nominal - SP2</text><text x="90" y="441" font-size="14" fill="#687A8D">0.00284846 to 0.00001066</text><rect x="210" y="455" width="478.20" height="26" rx="7" fill="#0E8A73"/><text x="676" y="475" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">99.63%</text>
+      <text x="90" y="533" font-size="18" font-weight="600">Fluctuations - SP1</text><text x="90" y="556" font-size="14" fill="#687A8D">0.00267238 to 0.00002235</text><rect x="210" y="570" width="475.99" height="26" rx="7" fill="#0E8A73"/><text x="674" y="590" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">99.16%</text>
+      <text x="90" y="648" font-size="18" font-weight="600">Fluctuations - SP2</text><text x="90" y="671" font-size="14" fill="#687A8D">0.00060009 to 0.00006186</text><rect x="210" y="685" width="430.52" height="26" rx="7" fill="#0E8A73"/><text x="629" y="705" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">89.69%</text>
+      <text x="90" y="763" font-size="18" font-weight="600">Gradual ramp - SP1</text><text x="90" y="786" font-size="14" fill="#687A8D">0.00347973 to 0.00017779</text><rect x="210" y="800" width="455.48" height="26" rx="7" fill="#0E8A73"/><text x="654" y="820" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">94.89%</text>
+      <text x="90" y="878" font-size="18" font-weight="600">Gradual ramp - SP2</text><text x="90" y="901" font-size="14" fill="#687A8D">0.00082591 to 0.00007388</text><rect x="210" y="915" width="437.06" height="26" rx="7" fill="#0E8A73"/><text x="636" y="935" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">91.05%</text>
+    </g>
+
+    <rect x="820" y="145" width="725" height="900" rx="24" fill="#FFFFFF" stroke="#DCE4EE" stroke-width="2"/>
+    <text x="855" y="196" font-size="27" font-weight="700" fill="#12304A">Tray 85 temperature (K)</text>
+    <text x="855" y="226" font-size="17" fill="#687A8D">Final absolute error: RL1 to RL2</text>
+    <g stroke="#E2E8F0"><line x1="980" y1="260" x2="980" y2="960"/><line x1="1100" y1="260" x2="1100" y2="960"/><line x1="1220" y1="260" x2="1220" y2="960"/><line x1="1340" y1="260" x2="1340" y2="960"/><line x1="1460" y1="260" x2="1460" y2="960"/></g>
+    <g font-size="14" fill="#687A8D" text-anchor="middle"><text x="980" y="985">0%</text><text x="1100" y="985">25%</text><text x="1220" y="985">50%</text><text x="1340" y="985">75%</text><text x="1460" y="985">100%</text></g>
+    <g fill="#24384B">
+      <text x="855" y="303" font-size="18" font-weight="600">Nominal - SP1</text><text x="855" y="326" font-size="14" fill="#687A8D">0.07441154 K to 0.01390833 K</text><rect x="980" y="340" width="390.28" height="26" rx="7" fill="#2F6FED"/><text x="1359" y="360" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">81.31%</text>
+      <text x="855" y="418" font-size="18" font-weight="600">Nominal - SP2</text><text x="855" y="441" font-size="14" fill="#687A8D">0.13430596 K to 0.01221799 K</text><rect x="980" y="455" width="436.33" height="26" rx="7" fill="#2F6FED"/><text x="1405" y="475" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">90.90%</text>
+      <text x="855" y="533" font-size="18" font-weight="600">Fluctuations - SP1</text><text x="855" y="556" font-size="14" fill="#687A8D">0.33396403 K to 0.02801777 K</text><rect x="980" y="570" width="439.73" height="26" rx="7" fill="#2F6FED"/><text x="1408" y="590" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">91.61%</text>
+      <text x="855" y="648" font-size="18" font-weight="600">Fluctuations - SP2</text><text x="855" y="671" font-size="14" fill="#687A8D">0.12026549 K to 0.04705424 K</text><rect x="980" y="685" width="292.20" height="26" rx="7" fill="#2F6FED"/><text x="1261" y="705" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">60.87%</text>
+      <text x="855" y="763" font-size="18" font-weight="600">Gradual ramp - SP1</text><text x="855" y="786" font-size="14" fill="#687A8D">0.03546317 K to 0.02277551 K</text><rect x="980" y="800" width="171.73" height="26" rx="7" fill="#2F6FED"/><text x="1140" y="820" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">35.78%</text>
+      <text x="855" y="878" font-size="18" font-weight="600">Gradual ramp - SP2</text><text x="855" y="901" font-size="14" fill="#687A8D">0.71852075 K to 0.01604136 K</text><rect x="980" y="915" width="469.28" height="26" rx="7" fill="#2F6FED"/><text x="1438" y="935" text-anchor="end" font-size="16" font-weight="700" fill="#FFFFFF">97.77%</text>
+    </g>
+
+    <rect x="70" y="1070" width="1460" height="58" rx="14" fill="#FFF6E8" stroke="#F5C984"/>
+    <text x="95" y="1095" font-size="17" font-weight="700" fill="#7B4B00">Evidence note</text>
+    <text x="95" y="1119" font-size="16" fill="#5E6470">Exact final-error values come from the published article's result table. Run count and uncertainty are not stated, so this figure does not imply a five-run average.</text>
+  </g>
+</svg>

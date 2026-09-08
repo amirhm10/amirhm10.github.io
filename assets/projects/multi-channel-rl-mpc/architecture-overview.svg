@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1050" viewBox="0 0 1400 1050" role="img" aria-labelledby="title desc">
+  <title id="title">Multi-channel reinforcement learning assistance around an offset-free MPC calculation</title>
+  <desc id="desc">A vertical control pipeline starts with measurements and targets, then configures horizons and weights, corrects the dynamic matrix, solves constrained offset-free MPC, projects a residual correction, and applies the input to a simulated process. Four side cards show a DQN horizon assistant and three TD3 assistants. Each card passes through its own critic-based gate. A separate dashed learning path shows reward, replay, and network updates during simulation training only.</desc>
+  <defs>
+    <style>
+      .bg{fill:#08111f}.panel{fill:#101d31;stroke:#253a58;stroke-width:2}.step{fill:#13243c;stroke:#3a587e;stroke-width:2}.assist{fill:#152a46;stroke:#5b8def;stroke-width:2}.gate{fill:#2d203a;stroke:#c084fc;stroke-width:2}.plant{fill:#17352f;stroke:#42c7a5;stroke-width:2}.learn{fill:#241c38;stroke:#a78bfa;stroke-width:2;stroke-dasharray:8 7}.txt{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#eef5ff}.muted{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#aebed3}.small{font-size:17px}.body{font-size:21px}.label{font-size:18px;font-weight:700;letter-spacing:.06em}.head{font-size:38px;font-weight:750}.sub{font-size:20px}.arrow{stroke:#7aa2d8;stroke-width:3;fill:none;marker-end:url(#arrow)}.feedback{stroke:#42c7a5;stroke-width:3;fill:none;marker-end:url(#greenArrow)}.learnArrow{stroke:#a78bfa;stroke-width:3;fill:none;stroke-dasharray:7 6;marker-end:url(#purpleArrow)}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#7aa2d8"/></marker>
+    <marker id="greenArrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#42c7a5"/></marker>
+    <marker id="purpleArrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a78bfa"/></marker>
+  </defs>
+  <rect class="bg" width="1400" height="1050" rx="28"/>
+  <text class="txt head" x="56" y="68">RL assists the MPC calculation. It does not replace it.</text>
+  <text class="muted sub" x="56" y="103">Four bounded proposals, four independent gates, one constrained control backbone</text>
+
+  <rect class="panel" x="470" y="132" width="460" height="700" rx="30"/>
+  <text class="muted label" x="700" y="174" text-anchor="middle">ONLINE CONTROL PATH</text>
+  <rect class="step" x="525" y="200" width="350" height="78" rx="18"/>
+  <text class="txt body" x="700" y="232" text-anchor="middle" font-weight="700">Build the controller state</text>
+  <text class="muted small" x="700" y="258" text-anchor="middle">measurements, target, observer, previous input</text>
+  <path class="arrow" d="M700 278 V316"/>
+  <rect class="step" x="525" y="316" width="350" height="78" rx="18"/>
+  <text class="txt body" x="700" y="349" text-anchor="middle" font-weight="700">Set horizons and objective weights</text>
+  <text class="muted small" x="700" y="375" text-anchor="middle">configure the current MPC problem</text>
+  <path class="arrow" d="M700 394 V432"/>
+  <rect class="step" x="525" y="432" width="350" height="78" rx="18"/>
+  <text class="txt body" x="700" y="465" text-anchor="middle" font-weight="700">Correct the dynamic matrix</text>
+  <text class="muted small" x="700" y="491" text-anchor="middle">adjust the forced-response map</text>
+  <path class="arrow" d="M700 510 V548"/>
+  <rect class="step" x="525" y="548" width="350" height="78" rx="18"/>
+  <text class="txt body" x="700" y="581" text-anchor="middle" font-weight="700">Solve constrained offset-free MPC</text>
+  <text class="muted small" x="700" y="607" text-anchor="middle">compute the nominal plant input</text>
+  <path class="arrow" d="M700 626 V664"/>
+  <rect class="step" x="525" y="664" width="350" height="78" rx="18"/>
+  <text class="txt body" x="700" y="697" text-anchor="middle" font-weight="700">Project the residual correction</text>
+  <text class="muted small" x="700" y="723" text-anchor="middle">respect current input headroom</text>
+  <path class="arrow" d="M700 742 V780"/>
+  <rect class="plant" x="525" y="780" width="350" height="78" rx="18"/>
+  <text class="txt body" x="700" y="813" text-anchor="middle" font-weight="700">Simulated process plant</text>
+  <text class="muted small" x="700" y="839" text-anchor="middle">new measurements and closed-loop reward</text>
+
+  <rect class="assist" x="55" y="280" width="330" height="126" rx="22"/>
+  <text class="txt body" x="80" y="316" font-weight="700">Horizon assistant</text>
+  <text class="muted small" x="80" y="344">DQN chooses a feasible (N_P, N_C) pair</text>
+  <text class="muted small" x="80" y="371">Supervisor: nominal horizon pair</text>
+  <rect class="gate" x="402" y="324" width="90" height="46" rx="23"/>
+  <text class="txt small" x="447" y="353" text-anchor="middle" font-weight="700">gate</text>
+  <path class="arrow" d="M385 347 H402"/><path class="arrow" d="M492 347 H525"/>
+
+  <rect class="assist" x="55" y="430" width="330" height="126" rx="22"/>
+  <text class="txt body" x="80" y="466" font-weight="700">Weight assistant</text>
+  <text class="muted small" x="80" y="494">TD3 scales tracking and move penalties</text>
+  <text class="muted small" x="80" y="521">Supervisor: nominal multipliers</text>
+  <rect class="gate" x="402" y="469" width="90" height="46" rx="23"/>
+  <text class="txt small" x="447" y="498" text-anchor="middle" font-weight="700">gate</text>
+  <path class="arrow" d="M385 492 H402"/><path class="arrow" d="M492 492 H510 V374 H525"/>
+
+  <rect class="assist" x="1015" y="398" width="330" height="126" rx="22"/>
+  <text class="txt body" x="1040" y="434" font-weight="700">Model-response assistant</text>
+  <text class="muted small" x="1040" y="462">TD3 adjusts four response channels</text>
+  <text class="muted small" x="1040" y="489">Supervisor: accepted LS or zero correction</text>
+  <rect class="gate" x="908" y="439" width="90" height="46" rx="23"/>
+  <text class="txt small" x="953" y="468" text-anchor="middle" font-weight="700">gate</text>
+  <path class="arrow" d="M1015 462 H998"/><path class="arrow" d="M908 462 H875"/>
+
+  <rect class="assist" x="1015" y="635" width="330" height="126" rx="22"/>
+  <text class="txt body" x="1040" y="671" font-weight="700">Residual assistant</text>
+  <text class="muted small" x="1040" y="699">TD3 proposes a bounded input correction</text>
+  <text class="muted small" x="1040" y="726">Supervisor: zero residual</text>
+  <rect class="gate" x="908" y="677" width="90" height="46" rx="23"/>
+  <text class="txt small" x="953" y="706" text-anchor="middle" font-weight="700">gate</text>
+  <path class="arrow" d="M1015 700 H998"/><path class="arrow" d="M908 700 H875"/>
+
+  <path class="feedback" d="M875 819 H1320 V154 H930"/>
+  <text class="muted small" x="1170" y="142" text-anchor="middle">measurement feedback</text>
+
+  <rect class="learn" x="55" y="900" width="1290" height="105" rx="24"/>
+  <text class="txt label" x="85" y="937">SIMULATION-TRAINING PATH</text>
+  <text class="muted small" x="85" y="971">Shared reward / separate replay buffers / DQN and TD3 updates. Exploration and updates are disabled in final evaluation.</text>
+  <path class="learnArrow" d="M700 858 V900"/>
+  <path class="learnArrow" d="M355 953 H215 V406"/>
+  <path class="learnArrow" d="M1045 953 H1190 V761"/>
+</svg>

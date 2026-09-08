@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Simplified hydraulic model</title>
+  <desc id="desc">A stylized 101-tray column and 100 downcomers are driven by sparse pressure, temperature, feed, and manipulated-input measurements. The model reconstructs stage properties, traffic, inventories, backup, and flooding indicators.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCF9F2"/><stop offset="1" stop-color="#F4EDDF"/></linearGradient>
+    <linearGradient id="column" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#D8ECE7"/><stop offset="1" stop-color="#7CB7AC"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#123B3F" flood-opacity="0.12"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#0B4F50"/></marker>
+    <style>
+      .title{font:700 34px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#123B3F}
+      .subtitle{font:400 17px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#486365}
+      .kicker{font:700 13px system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:1.4px;fill:#A76508}
+      .head{font:700 20px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#123B3F}
+      .body{font:400 15px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#36575A}
+      .small{font:600 12px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#486365}
+      .card{fill:#FFFDF8;stroke:#B8C9C4;stroke-width:1.5;rx:18;filter:url(#shadow)}
+    </style>
+  </defs>
+  <rect width="1200" height="780" rx="28" fill="url(#bg)"/>
+  <text x="64" y="62" class="kicker">HYDRAULIC V3.8</text>
+  <text x="64" y="104" class="title">Sparse anchors, stagewise reconstruction</text>
+  <text x="64" y="136" class="subtitle">The internal profiles are calculated states—not hidden full-column measurements.</text>
+
+  <g transform="translate(54 190)">
+    <rect class="card" width="306" height="500"/>
+    <text x="26" y="42" class="head">Direct runtime fields</text>
+    <rect x="26" y="62" width="254" height="46" rx="12" fill="#FFF1D8"/>
+    <text x="44" y="91" class="body" font-weight="700">Feed: flow, T, P, binary split</text>
+    <rect x="26" y="120" width="254" height="46" rx="12" fill="#FFF1D8"/>
+    <text x="44" y="149" class="body" font-weight="700">Commands: reflux + duty</text>
+    <rect x="26" y="178" width="254" height="64" rx="12" fill="#E9F3F0"/>
+    <text x="44" y="205" class="body" font-weight="700">Pressure anchors</text>
+    <text x="44" y="226" class="body">top P + upper/lower ΔP</text>
+    <rect x="26" y="254" width="254" height="92" rx="12" fill="#E9F3F0"/>
+    <text x="44" y="281" class="body" font-weight="700">Five tray temperatures</text>
+    <text x="44" y="304" class="body">stages 24, 37, 51, 56, 85</text>
+    <text x="44" y="327" class="small">sparse internal anchors</text>
+    <text x="26" y="389" font-family="system-ui" font-size="46" font-weight="800" fill="#0B4F50">15</text>
+    <text x="26" y="418" class="body">total saved fields</text>
+    <text x="26" y="447" class="small">8 are internal-column</text>
+    <text x="26" y="466" class="small">pressure/temperature fields</text>
+  </g>
+
+  <path d="M372 440 H428" stroke="#0B4F50" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(452 178)">
+    <rect x="0" y="0" width="276" height="524" rx="138" fill="url(#column)" stroke="#0B4F50" stroke-width="3"/>
+    <ellipse cx="138" cy="18" rx="119" ry="15" fill="#E9F3F0" stroke="#0B4F50" stroke-width="2"/>
+    <ellipse cx="138" cy="506" rx="119" ry="15" fill="#6AA99D" stroke="#0B4F50" stroke-width="2"/>
+    <g stroke="#0B4F50" stroke-width="2" opacity="0.82">
+      <path d="M30 70 H246"/><path d="M30 118 H246"/><path d="M30 166 H246"/><path d="M30 214 H246"/>
+      <path d="M30 262 H246"/><path d="M30 310 H246"/><path d="M30 358 H246"/><path d="M30 406 H246"/><path d="M30 454 H246"/>
+    </g>
+    <g fill="#FFFDF8" stroke="#0B4F50" stroke-width="1.5">
+      <path d="M58 71 v34 h38 v-34"/><path d="M180 119 v34 h38 v-34"/><path d="M58 167 v34 h38 v-34"/>
+      <path d="M180 215 v34 h38 v-34"/><path d="M58 263 v34 h38 v-34"/><path d="M180 311 v34 h38 v-34"/>
+      <path d="M58 359 v34 h38 v-34"/><path d="M180 407 v34 h38 v-34"/>
+    </g>
+    <rect x="20" y="246" width="236" height="34" rx="10" fill="#E2A23A" opacity="0.95"/>
+    <text x="138" y="269" text-anchor="middle" font-family="system-ui" font-size="14" font-weight="800" fill="#123B3F">FEED REGION · LOCAL TRAY / DC56</text>
+    <text x="138" y="40" text-anchor="middle" class="small">101 trays</text>
+    <text x="138" y="493" text-anchor="middle" class="small">100 downcomers</text>
+  </g>
+
+  <path d="M740 440 H796" stroke="#0B4F50" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(818 190)">
+    <rect class="card" width="328" height="500"/>
+    <text x="26" y="42" class="head">Reconstructed quantities</text>
+    <text x="26" y="78" class="body">• pressure and temperature profiles</text>
+    <text x="26" y="106" class="body">• liquid/vapor density and traffic</text>
+    <text x="26" y="134" class="body">• tray and downcomer inventory</text>
+    <text x="26" y="162" class="body">• clear backup and discharge</text>
+    <path d="M26 184 H302" stroke="#E7DDD0"/>
+    <text x="26" y="220" class="head">Capacity indicators</text>
+    <rect x="26" y="240" width="276" height="58" rx="12" fill="#E9F3F0"/>
+    <text x="44" y="267" class="body" font-weight="700">101 Fair coordinates</text>
+    <text x="44" y="286" class="small">entrainment / vapor capacity</text>
+    <rect x="26" y="312" width="276" height="58" rx="12" fill="#FFF1D8"/>
+    <text x="44" y="339" class="body" font-weight="700">100 downcomer coordinates</text>
+    <text x="44" y="358" class="small">total aerated height / backup</text>
+    <path d="M26 392 H302" stroke="#E7DDD0"/>
+    <text x="26" y="425" class="body" font-weight="700">Frozen empirical elements</text>
+    <text x="26" y="449" class="small">bounded DC56 pressure-share regression</text>
+    <text x="26" y="472" class="small">ordinary-downcomer backup multiplier</text>
+  </g>
+
+  <text x="452" y="728" class="body" font-weight="700">201-state nonlinear liquid-inventory model</text>
+  <text x="452" y="751" class="small">No component/energy state balance; single equivalent hydraulic path; simulator validation only.</text>
+  <text x="64" y="763" class="small">F02 · Model architecture · Not to scale · Evidence: E01, E07, E08</text>
+</svg>

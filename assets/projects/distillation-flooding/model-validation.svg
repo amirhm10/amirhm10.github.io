@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Hydraulic model validation against Aspen Dynamics</title>
+  <desc id="desc">The constrained 16,000-step run has 1.946654 millimeter adjusted all-downcomer backup RMSE versus 7.432206 millimeter raw RMSE. DC56 backup RMSE is 0.995242 millimeter and DC56 outlet-flow RMSE is 0.991043 liters per second.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCF9F2"/><stop offset="1" stop-color="#F3EBDD"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#123B3F" flood-opacity="0.12"/></filter>
+    <style>
+      .title{font:700 34px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#123B3F}
+      .subtitle{font:400 17px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#486365}
+      .kicker{font:700 13px system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:1.4px;fill:#A76508}
+      .head{font:700 18px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#123B3F}
+      .body{font:400 14px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#486365}
+      .small{font:600 12px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#486365}
+      .metric{font:800 30px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#0B4F50}
+      .card{fill:#FFFDF8;stroke:#B8C9C4;stroke-width:1.5;rx:18;filter:url(#shadow)}
+    </style>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+  <text x="64" y="62" class="kicker">POST-RUN MODEL VALIDATION</text>
+  <text x="64" y="104" class="title">Millimeter-scale clear-backup error</text>
+  <text x="64" y="136" class="subtitle">Constrained arm · 16,000 scored endpoints · same-coordinate comparison with Aspen labels</text>
+
+  <g transform="translate(62 190)">
+    <rect class="card" width="620" height="424"/>
+    <text x="30" y="44" class="head">All-downcomer clear-backup RMSE</text>
+    <text x="30" y="70" class="body">Raw simplified output versus frozen calibrated reporting output</text>
+    <line x1="86" y1="340" x2="568" y2="340" stroke="#B8C9C4" stroke-width="2"/>
+    <line x1="86" y1="108" x2="86" y2="340" stroke="#B8C9C4" stroke-width="2"/>
+    <g class="small">
+      <text x="73" y="344" text-anchor="end">0</text>
+      <text x="73" y="286" text-anchor="end">2</text>
+      <text x="73" y="228" text-anchor="end">4</text>
+      <text x="73" y="170" text-anchor="end">6</text>
+      <text x="73" y="112" text-anchor="end">8 mm</text>
+    </g>
+    <g stroke="#E7DDD0" stroke-width="1">
+      <line x1="86" y1="282" x2="568" y2="282"/><line x1="86" y1="224" x2="568" y2="224"/>
+      <line x1="86" y1="166" x2="568" y2="166"/><line x1="86" y1="108" x2="568" y2="108"/>
+    </g>
+    <rect x="160" y="124.47" width="130" height="215.53" rx="8" fill="#D09A3A"/>
+    <rect x="370" y="283.54" width="130" height="56.46" rx="8" fill="#2E7D6F"/>
+    <text x="225" y="112" text-anchor="middle" class="head">7.432206</text>
+    <text x="435" y="271" text-anchor="middle" class="head">1.946654</text>
+    <text x="225" y="371" text-anchor="middle" class="body" font-weight="700">Raw</text>
+    <text x="435" y="371" text-anchor="middle" class="body" font-weight="700">Adjusted</text>
+    <rect x="116" y="392" width="422" height="4" rx="2" fill="#0B4F50" opacity="0.18"/>
+  </g>
+
+  <g transform="translate(714 190)">
+    <rect class="card" width="424" height="122"/>
+    <text x="24" y="35" class="head">Feed downcomer · DC56</text>
+    <text x="24" y="78" class="metric">0.995242 mm</text>
+    <text x="24" y="103" class="small">backup RMSE · slope 0.814402</text>
+  </g>
+  <g transform="translate(714 330)">
+    <rect class="card" width="424" height="122"/>
+    <text x="24" y="35" class="head">Feed downcomer outlet flow</text>
+    <text x="24" y="78" class="metric">0.991043 L/s</text>
+    <text x="24" y="103" class="small">RMSE · correlation 0.997832</text>
+  </g>
+  <g transform="translate(714 470)">
+    <rect class="card" width="202" height="144"/>
+    <text x="20" y="34" class="head">Stage pressure</text>
+    <text x="20" y="76" class="metric">0.676574</text>
+    <text x="20" y="100" class="body">mbar RMSE</text>
+    <text x="20" y="124" class="small">all stages</text>
+  </g>
+  <g transform="translate(936 470)">
+    <rect class="card" width="202" height="144"/>
+    <text x="20" y="34" class="head">Stage temperature</text>
+    <text x="20" y="76" class="metric">1.180236</text>
+    <text x="20" y="100" class="body">°C RMSE</text>
+    <text x="20" y="124" class="small">all stages</text>
+  </g>
+
+  <rect x="62" y="636" width="1076" height="42" rx="12" fill="#123B3F"/>
+  <text x="82" y="662" font-family="system-ui" font-size="13" font-weight="600" fill="#F9F4E8">Interpretation: calibrated simulation output; low RMSE does not remove the DC56 slope defect or feed-tray height mismatch.</text>
+  <text x="64" y="704" class="small">F03 · Reduced-model validation against Aspen Dynamics labels · Evidence: E03</text>
+</svg>

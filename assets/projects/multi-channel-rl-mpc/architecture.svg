@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Multi-channel reinforcement-learning assistance for model predictive control</title>
+  <desc id="desc">Four learning channels propose horizon, model, weight, and residual assistance around a baseline model predictive controller, followed by a safe reinforcement-learning gate.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0b6862"/></marker></defs>
+  <rect width="1200" height="600" rx="26" fill="#fffdf7"/>
+  <g font-family="Arial, sans-serif" fill="#123337">
+    <text x="70" y="65" font-size="24" font-weight="700" fill="#0b6862">ADAPTIVE ASSISTANCE</text>
+    <g font-size="21" font-weight="700" text-anchor="middle">
+      <rect x="65" y="105" width="210" height="88" rx="16" fill="#e9f0ec" stroke="#0b6862" stroke-width="3"/><text x="170" y="158">Horizon channel</text>
+      <rect x="305" y="105" width="210" height="88" rx="16" fill="#e9f0ec" stroke="#0b6862" stroke-width="3"/><text x="410" y="158">Model channel</text>
+      <rect x="545" y="105" width="210" height="88" rx="16" fill="#e9f0ec" stroke="#0b6862" stroke-width="3"/><text x="650" y="158">Weight channel</text>
+      <rect x="785" y="105" width="210" height="88" rx="16" fill="#e9f0ec" stroke="#0b6862" stroke-width="3"/><text x="890" y="158">Residual channel</text>
+    </g>
+    <path d="M170 193 V249 M410 193 V249 M650 193 V249 M890 193 V249" stroke="#0b6862" stroke-width="4" marker-end="url(#a)"/>
+    <rect x="250" y="258" width="370" height="112" rx="18" fill="#f7f3e8" stroke="#d69b38" stroke-width="3"/>
+    <text x="435" y="308" text-anchor="middle" font-size="26" font-weight="700">Model predictive controller</text><text x="435" y="341" text-anchor="middle" font-size="19">baseline optimization + assistance</text>
+    <rect x="700" y="258" width="300" height="112" rx="18" fill="#0b6862"/>
+    <text x="850" y="308" text-anchor="middle" font-size="26" font-weight="700" fill="white">Safe-RL gate</text><text x="850" y="341" text-anchor="middle" font-size="19" fill="white">screen and blend</text>
+    <path d="M620 314 H692" stroke="#0b6862" stroke-width="5" marker-end="url(#a)"/>
+    <rect x="450" y="445" width="300" height="100" rx="18" fill="#f1dfb8" stroke="#d69b38" stroke-width="3"/>
+    <text x="600" y="502" text-anchor="middle" font-size="27" font-weight="700">Process system</text>
+    <path d="M850 370 C850 420 600 407 600 437" fill="none" stroke="#0b6862" stroke-width="5" marker-end="url(#a)"/><path d="M450 495 C110 495 105 314 242 314" fill="none" stroke="#0b6862" stroke-width="5" marker-end="url(#a)"/>
+  </g>
+</svg>

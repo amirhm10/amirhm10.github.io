@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="790" viewBox="0 0 1200 790" role="img" aria-labelledby="title desc">
+  <title id="title">Eight-run tracking and authority summary</title>
+  <desc id="desc">A two-column matrix compares initial adaptation and continuation for four TD3 configurations. Each cell reports intrinsic-viscosity RMSE, reactor-temperature RMSE, and either diagnostic certificate-failure rate for ungated controllers or actual intervention rate for gated controllers, with means and standard deviations over eight retained simulation runs.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0B1F33" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#31536F"/>
+    </marker>
+    <style>
+      .bg { fill:#F7FAFC; }
+      .title { font:700 32px Arial,sans-serif; fill:#102A43; }
+      .subtitle { font:400 16px Arial,sans-serif; fill:#486581; }
+      .h { font:700 18px Arial,sans-serif; fill:#102A43; }
+      .label { font:600 14px Arial,sans-serif; fill:#243B53; }
+      .small { font:400 12px Arial,sans-serif; fill:#627D98; }
+      .value { font:700 14px Arial,sans-serif; fill:#102A43; }
+    </style>
+  </defs>
+  <rect class="bg" width="100%" height="100%" rx="24"/>
+  <text class="title" x="54" y="58">Eight-run tracking and authority summary</text>
+  <text class="subtitle" x="54" y="88">A new website result matrix generated from saved-run aggregates; values are mean +/- one standard deviation.</text>
+  <rect x="275" y="116" width="410" height="54" rx="12" fill="#DCECF6"/>
+  <rect x="715" y="116" width="410" height="54" rx="12" fill="#DFF3EF"/>
+  <text class="h" x="480" y="149" text-anchor="middle">Initial adaptation</text>
+  <text class="h" x="920" y="149" text-anchor="middle">Continuation</text>
+  <rect x="40" y="190" width="1090" height="122" rx="16" fill="#FFFFFF" stroke="#8CA3B5" stroke-width="1.5"/>
+  <text class="h" x="62" y="225">Cold-start TD3, no gate</text>
+  <text class="small" x="62" y="251">authority = diagnostic failure</text>
+  <text class="small" x="62" y="278">n = 8 retained runs</text>
+  <text class="label" x="300" y="219">Viscosity RMSE</text>
+  <rect x="436" y="208" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="208" width="29.1" height="10" rx="5" fill="#8CA3B5"/>
+  <text class="value" x="566" y="219">0.136 +/- 0.004 L/g</text>
+  <text class="label" x="300" y="249">Temperature RMSE</text>
+  <rect x="436" y="238" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="238" width="80.0" height="10" rx="5" fill="#8CA3B5"/>
+  <text class="value" x="566" y="249">0.373 +/- 0.019 K</text>
+  <text class="label" x="300" y="279">Authority events</text>
+  <rect x="436" y="268" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="268" width="84.6" height="10" rx="5" fill="#8CA3B5"/>
+  <text class="value" x="566" y="279">14.34 +/- 1.30%</text>
+  <text class="label" x="740" y="219">Viscosity RMSE</text>
+  <rect x="876" y="208" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="208" width="27.2" height="10" rx="5" fill="#8CA3B5"/>
+  <text class="value" x="1006" y="219">0.127 +/- 0.005 L/g</text>
+  <text class="label" x="740" y="249">Temperature RMSE</text>
+  <rect x="876" y="238" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="238" width="92.0" height="10" rx="5" fill="#8CA3B5"/>
+  <text class="value" x="1006" y="249">0.429 +/- 0.095 K</text>
+  <text class="label" x="740" y="279">Authority events</text>
+  <rect x="876" y="268" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="268" width="111.4" height="10" rx="5" fill="#8CA3B5"/>
+  <text class="value" x="1006" y="279">18.87 +/- 3.66%</text>
+  <rect x="40" y="326" width="1090" height="122" rx="16" fill="#FFFFFF" stroke="#4E7896" stroke-width="1.5"/>
+  <text class="h" x="62" y="361">Cold-start TD3 + gate</text>
+  <text class="small" x="62" y="387">authority = actual intervention</text>
+  <text class="small" x="62" y="414">n = 8 retained runs</text>
+  <text class="label" x="300" y="355">Viscosity RMSE</text>
+  <rect x="436" y="344" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="344" width="30.5" height="10" rx="5" fill="#4E7896"/>
+  <text class="value" x="566" y="355">0.142 +/- 0.002 L/g</text>
+  <text class="label" x="300" y="385">Temperature RMSE</text>
+  <rect x="436" y="374" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="374" width="80.2" height="10" rx="5" fill="#4E7896"/>
+  <text class="value" x="566" y="385">0.374 +/- 0.014 K</text>
+  <text class="label" x="300" y="415">Authority events</text>
+  <rect x="436" y="404" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="404" width="21.4" height="10" rx="5" fill="#4E7896"/>
+  <text class="value" x="566" y="415">3.62 +/- 0.52%</text>
+  <text class="label" x="740" y="355">Viscosity RMSE</text>
+  <rect x="876" y="344" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="344" width="27.7" height="10" rx="5" fill="#4E7896"/>
+  <text class="value" x="1006" y="355">0.129 +/- 0.003 L/g</text>
+  <text class="label" x="740" y="385">Temperature RMSE</text>
+  <rect x="876" y="374" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="374" width="71.7" height="10" rx="5" fill="#4E7896"/>
+  <text class="value" x="1006" y="385">0.334 +/- 0.019 K</text>
+  <text class="label" x="740" y="415">Authority events</text>
+  <rect x="876" y="404" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="404" width="20.9" height="10" rx="5" fill="#4E7896"/>
+  <text class="value" x="1006" y="415">3.54 +/- 0.48%</text>
+  <rect x="40" y="462" width="1090" height="122" rx="16" fill="#FFFFFF" stroke="#C59A45" stroke-width="1.5"/>
+  <text class="h" x="62" y="497">Pretrained TD3, no gate</text>
+  <text class="small" x="62" y="523">authority = diagnostic failure</text>
+  <text class="small" x="62" y="550">n = 8 retained runs</text>
+  <text class="label" x="300" y="491">Viscosity RMSE</text>
+  <rect x="436" y="480" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="480" width="26.8" height="10" rx="5" fill="#C59A45"/>
+  <text class="value" x="566" y="491">0.125 +/- 0.002 L/g</text>
+  <text class="label" x="300" y="521">Temperature RMSE</text>
+  <rect x="436" y="510" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="510" width="62.9" height="10" rx="5" fill="#C59A45"/>
+  <text class="value" x="566" y="521">0.293 +/- 0.014 K</text>
+  <text class="label" x="300" y="551">Authority events</text>
+  <rect x="436" y="540" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="540" width="35.9" height="10" rx="5" fill="#C59A45"/>
+  <text class="value" x="566" y="551">6.09 +/- 1.94%</text>
+  <text class="label" x="740" y="491">Viscosity RMSE</text>
+  <rect x="876" y="480" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="480" width="25.3" height="10" rx="5" fill="#C59A45"/>
+  <text class="value" x="1006" y="491">0.118 +/- 0.002 L/g</text>
+  <text class="label" x="740" y="521">Temperature RMSE</text>
+  <rect x="876" y="510" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="510" width="57.9" height="10" rx="5" fill="#C59A45"/>
+  <text class="value" x="1006" y="521">0.270 +/- 0.026 K</text>
+  <text class="label" x="740" y="551">Authority events</text>
+  <rect x="876" y="540" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="540" width="56.2" height="10" rx="5" fill="#C59A45"/>
+  <text class="value" x="1006" y="551">9.53 +/- 4.79%</text>
+  <rect x="40" y="598" width="1090" height="122" rx="16" fill="#E9F8F3" stroke="#178A73" stroke-width="3"/>
+  <text class="h" x="62" y="633">Pretrained TD3 + gate</text>
+  <text class="small" x="62" y="659">authority = actual intervention</text>
+  <text class="small" x="62" y="686">n = 8 retained runs</text>
+  <text class="label" x="300" y="627">Viscosity RMSE</text>
+  <rect x="436" y="616" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="616" width="28.4" height="10" rx="5" fill="#178A73"/>
+  <text class="value" x="566" y="627">0.132 +/- 0.002 L/g</text>
+  <text class="label" x="300" y="657">Temperature RMSE</text>
+  <rect x="436" y="646" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="646" width="68.0" height="10" rx="5" fill="#178A73"/>
+  <text class="value" x="566" y="657">0.317 +/- 0.016 K</text>
+  <text class="label" x="300" y="687">Authority events</text>
+  <rect x="436" y="676" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="436" y="676" width="14.6" height="10" rx="5" fill="#178A73"/>
+  <text class="value" x="566" y="687">2.47 +/- 0.36%</text>
+  <text class="label" x="740" y="627">Viscosity RMSE</text>
+  <rect x="876" y="616" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="616" width="26.9" height="10" rx="5" fill="#178A73"/>
+  <text class="value" x="1006" y="627">0.125 +/- 0.002 L/g</text>
+  <text class="label" x="740" y="657">Temperature RMSE</text>
+  <rect x="876" y="646" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="646" width="58.7" height="10" rx="5" fill="#178A73"/>
+  <text class="value" x="1006" y="657">0.274 +/- 0.014 K</text>
+  <text class="label" x="740" y="687">Authority events</text>
+  <rect x="876" y="676" width="118" height="10" rx="5" fill="#D9E2EC"/>
+  <rect x="876" y="676" width="12.6" height="10" rx="5" fill="#178A73"/>
+  <text class="value" x="1006" y="687">2.14 +/- 0.50%</text>
+  <text class="small" x="54" y="738">No-gate values are logged certificate failures; gated values are actions actually replaced by the gate.</text>
+  <text class="small" x="54" y="756">The four TD3 variants use the same retained run indices. This is descriptive simulation evidence, not a confidence interval or formal significance test.</text>
+</svg>
