@@ -31,7 +31,7 @@ a:hover { color: var(--amber); }
 .navbar-nav .nav-link { color: var(--ink) !important; font-size: .86rem; font-weight: 600; }
 .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover { color: var(--teal-dark) !important; text-decoration: underline; text-underline-offset: 7px; }
 .profile-links { display: flex; flex-wrap: wrap; gap: .35rem 1.1rem; margin: .7rem 0 1rem; }
-.profile-link { display: inline-flex; align-items: center; gap: .4rem; min-height: 38px; font-size: .82rem; font-weight: 650; text-decoration: none; }
+.profile-link { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; font-size: .82rem; font-weight: 650; text-decoration: underline; touch-action: manipulation; }
 .profile-link:hover { text-decoration: underline; }
 .profile-link i, .profile-link svg { display: inline-block; flex: none; width: 16px; height: 16px; font-size: 16px; line-height: 1; color: #24645c; fill: #24645c; }
 .navbar-toggler { border-color: var(--line); min-height: 44px; min-width: 44px; }
